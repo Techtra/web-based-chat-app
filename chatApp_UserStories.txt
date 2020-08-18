@@ -9,7 +9,7 @@ User Stories: Admin
 	• Should be able to modify and remove user
 	• Should be able to view users
 	• Should be able to set restrictions
-	• Should be able to view logs
+	• Should be able to view logs.
 	• Add or remove privileges
 	• Should be able to see online status of users
 	• Should be able to see log of tasks
