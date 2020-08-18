@@ -1,0 +1,42 @@
+TYPES OF USERS
+	• Admin
+	• Employee
+	• Manager
+	• Executive
+
+User Stories: Admin
+	• Should be able add a user
+	• Should be able to modify and remove user
+	• Should be able to view users
+	• Should be able to set restrictions
+	• Should be able to view logs
+	• Add or remove privileges
+	• Should be able to see online status of users
+	• Should be able to see log of tasks
+	
+	
+	
+
+User Stories: employee
+	• Login / Logout 
+	• Should be able to reset password to secure my account 
+	• Send message to other employees of same category
+	• Should be able to see message status (sent/not sent)
+	• See a thread of my chats
+	• Should be able to pin chats
+	• See a list of personnel I can chat with and their online status
+	• Set status so that other personnel will know whether they're busy or available for conversations
+	• Should be able see notifications from new messages
+	• Setup profile
+	• Should be able add, edit and delete a task
+	• Should be able to see lists of pending and completed tasks
+	
+User Stories: manager
+	• Should be able to see fellow managers and employees
+	• Should have the choice to be invisible to employees but not other managers and executives
+	• Should be able to create chat rooms and send invites for others to join the chatroom
+	
+User Stories: executive
+	• Should see fellow executives, managers and all other employees
+	• Should have the choice to be visible to employees but not other executive
+	• Should be able to create chat rooms and send invites for others to join the chatroom
