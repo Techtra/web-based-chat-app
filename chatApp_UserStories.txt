@@ -4,39 +4,44 @@ TYPES OF USERS
 	• Manager
 	• Executive
 
-User Stories: Admin
-	• Should be able add a user
-	• Should be able to modify and remove user
-	• Should be able to view users
-	• Should be able to set restrictions
-	• Should be able to view logs.
-	• Add or remove privileges
-	• Should be able to see online status of users
-	• Should be able to see log of tasks
+Admin
+	• As an admin, I should be able to log into the system so that I can have excess to the system
+	• As an admin, I should be able to log out of the system so that I can prevent unauthorised access to the system when I am not around
+	• As an admin, I should be able add a user so that unauthorised users can be prevented from getting access to the system
+	• As an admin, I should be able to modify a user so that unneeded user accounts can be removed 
+	• As an admin, I should be able to remove a user so that user accounts with discrepancies can be corrected
+	• As an admin, I should be able to view users and their status so that I can know the active and inactive user accounts
+	• As an admin, I should be able to set restrictions so that I can disable or enable user accounts
+	• As an admin, I should be able to view logs of user activities
+	• As an admin, I should be able to add or remove user privileges so that certain users can have additional functionalities
+	• As an admin, I should be able to see online status of users
+
 	
 	
 	
 
-User Stories: employee
-	• Login / Logout 
-	• Should be able to reset password to secure my account 
-	• Send message to other employees of same category
-	• Should be able to see message status (sent/not sent)
-	• See a thread of my chats
-	• Should be able to pin chats
-	• See a list of personnel I can chat with and their online status
-	• Set status so that other personnel will know whether they're busy or available for conversations
-	• Should be able see notifications from new messages
-	• Setup profile
-	• Should be able add, edit and delete a task
-	• Should be able to see lists of pending and completed tasks
+Employee
+	• As an employee, I should be able to log into the system to have access to the system and its functionalities 
+	• As an employee, I should be able to reset my password in order to secure my account 
+	• As an employee, I should be able to send texts to other employees of same category in order to convey my message
+	• As an employee, I should be able to should be able to see message status (sent/not sent) in order to know whether the recipient has got the message
+	• As an employee, I should be able to see a thread of my chats in order to see those I can send messages to
+	• As an employee, I should be able to pin chats so that I can easily access the contacts I chat frequently with
+	• As an employee, I should be able to see frequently contacted persons so that I can easily access those conversations
+	• As an employee, I should be able to see a list of personnel I can chat with and their online status so that I can identify those who are active at the moment
+	• As an employee, I should be able to set status from a list of preset statuses so that other personnel will know whether I'm busy, available for any related subject
+	• As an employee, I should be able to should be able see notifications from new messages and reply them so that I will not be distracted from my current work.
+	• As an employee, I should be able schedule tasks so that I can be able to add a task and respond to them on time.
+	• As an employee, I should be able to edit tasks so that I can reschedule and make necessary changes to existing task.
+	• As an employee, I should be able to delete tasks so that I can remove unneeded tasks
+	• As an employee, I should be able to see lists of pending and completed tasks to give me an overview of the history as well as new tasks.
 	
 User Stories: manager
-	• Should be able to see fellow managers and employees
-	• Should have the choice to be invisible to employees but not other managers and executives
-	• Should be able to create chat rooms and send invites for others to join the chatroom
+	• As a manager, I should be able to see fellow managers and employees so that I can easily send messages
+	• As a manager, I should have the choice to be invisible to employees but not other managers and executives so that I can reduce the number of incoming messages.
+	• As a manager, I should be able to create chat rooms and send invites for others to join the chatroom so that I can have a singular platform to relay a message.
 	
 User Stories: executive
-	• Should see fellow executives, managers and all other employees
-	• Should have the choice to be visible to employees but not other executive
-	• Should be able to create chat rooms and send invites for others to join the chatroom
+	• As an executive, I should see fellow executives, managers and all other employees so that I can easily send messages
+	• As an executive, I should have the choice to be visible to employees and managers but not other executive so that I can reduce the number of incoming messages
+	• As an executive, I should be able to create chat rooms and send invites for others to join the chatroom so that I can have a singular platform to relay a message.
