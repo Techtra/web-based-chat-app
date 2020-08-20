@@ -1,0 +1,49 @@
+SEE FELLOW EXECUTIVES, MANAGERS AND EMPLOYEES
+
+START
+
+1.Set UserId and UserName = UserId and UserName in DB.
+2.If{UserType == Managers && Employees && Executives}
+	Then
+	Display Chatboxes
+  End If
+
+END
+
+
+HAVE CHOICE TO BE INVISIBLE TO EMPLOYEES AND MANAGERS BUT NOT OTHER EXECUTIVES
+
+START
+
+1.Set UserId and UserName = UserId and UserName in DB.
+2.Select Checkbox to be invisible
+3.If{recipient User_Id != executive User_ID}
+	Hide Username in recipient chatbox
+  Else
+	Display Username in recipient chatbox
+  End If
+
+End
+
+
+BE ABLE TO CREATE CHATROOMS
+START
+
+1.Set UserId and UserName = UserId and UserName in DB.
+2.Select Button to create chatroom
+3.Print("Send Invite to the following Users?")
+4.If {Yes}
+	Then Display list of Users
+	Select Users to send invitation
+	Display(Send, Cancel)
+		If{Send}
+			Send Invitation to Users
+			Start Chatroom 
+		Else
+			Cancel Action
+		End If
+   Else 
+	Start Chatroom
+   End If
+
+END
