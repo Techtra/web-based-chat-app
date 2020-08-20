@@ -9,10 +9,10 @@ START
 3.If {Username == Admin_Username && Password = Admin_Password && Number = Admin_Number}
 	Then Log In
 	Display Dashboard
-   Else
+  Else
 	Print ("Admin Username or Password may be incorrect")
 	Clear Username && Password && Number
-   End If
+  End If
 END
 
 
@@ -41,7 +41,13 @@ START
 5.Set Username && UserID && Number && Password == null
 6.Display "Enter New User Details in the fields below"
 7.Get Username && UserID && Number && Password
-8.Store Values in System
+8.If{Username && Number exist in DB}
+	Print ("User already Exists!")
+	Cancel Action	
+  Else
+	Store Values in System
+	Create new User
+  EndIf
 9.Display Dashboard
 
 END
