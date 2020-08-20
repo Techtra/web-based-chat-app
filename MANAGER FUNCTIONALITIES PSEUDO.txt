@@ -1,0 +1,95 @@
+ SEE FELLOW MANAGERS AND EMPLOYEES
+
+START
+
+1.Set UserTypeID && UserName = UserTypeID && UserName in DB.
+2.If {recipients UserTypeID != executive_UserTypeID}
+	THEN
+	Display recipients UserName If User still exits in DB
+  Else
+	Hide recipient's UserName in Chatbox
+End If
+
+END
+
+
+HAVE CHOICE TO BE INVISIBLE TO EMPLOYEES BUT NOT OTHER MANAGERS AND EXECUTIVES
+
+START
+
+1.Set UserTypeID && UserName = UserTypeID && UserName in DB.
+2.Select Checkbox to be invisible
+3.Repeat While User Exists
+	If {Recipient UserTypeID = Employee UserTypeID}
+		THEN
+		Display UserName in Recipient ChatBox UI
+	Else
+		Hide UserName in Recipient ChatBox UI
+	ENDIF
+  End Repeat
+
+END
+
+
+BE ABLE TO CREATE CHATROOMS
+
+START
+
+1.Set UserTypeID && UserName == UserTypeID && UserName in DB.
+2.Select Button to create chatroom
+3.Display("Create Chatroom", "Select Employee to create Chatroom")
+	If(Create Chatroom is selected)
+		THEN
+		Display("Send Invite to the following Users?")
+		If {Yes}
+			THEN
+			Display list of Users
+			Select Users to send invitation
+			Display(Send, Cancel)
+			If{Send}
+				THEN
+				Send Invitation to Users
+				Start Chatroom 
+			Else
+				Cancel Action
+			End If	
+		Else 
+			Start Chatroom
+ 		End If
+
+	ELSEIf(Select Employee to create Chatroom is selected)
+			THEN
+			Display(List of UserNames with Employee_UserTypeID)
+			Print("Select the Employee you wish to grant permission to create chatroom")
+			Select Employee
+			Display("Send Link to Employee to create chatroom?)
+			If {Yes}
+				THEN
+				Send Link
+			Else
+				Go back to employee selection page
+			End If
+	End If
+		
+END
+
+
+BE ABLE TO ACCESS THE DASHBOARD
+
+START
+
+1.Set UserTypeID && UserName == UserTypeID and UserName in DB.
+2.Select Button to access dashboard
+3.Display("Go To Dashboard?")
+4.If {YES}
+	THEN
+	If(UserTypeID != Employee UserTypeID)
+		THEN
+		Open Dashboard
+  	Else
+		Print("You are not authorized access to the dashboard")
+  	EndIF
+  ELSE
+	Cancel Action
+
+END

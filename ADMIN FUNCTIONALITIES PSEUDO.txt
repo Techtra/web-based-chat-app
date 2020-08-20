@@ -1,0 +1,143 @@
+ADMIN FUNCTIONALITIES PSEUDO_CODE
+
+LOGIN
+
+START
+
+1.Set Admin_Username && Admin_Password && Admin_Number == null
+2.Input Username && Password && Number
+3.If {Username == Admin_Username && Password = Admin_Password && Number = Admin_Number}
+	Then Log In
+	Display Dashboard
+  Else
+	Print ("Admin Username or Password may be incorrect")
+	Clear Username && Password && Number
+  End If
+END
+
+
+LOGOUT
+
+START
+
+1.Print ("Are you sure you wish to logout")
+2.If {Yes}
+	End User Session
+  Else
+	Display Dashboard
+  End If
+
+END
+
+
+ADD NEW USER
+
+START
+
+1.Declare UserName as string
+2.Declare UserID as Integer
+3.Declare Number as Integer
+4.Declare Password as string
+5.Set Username && UserID && Number && Password == null
+6.Display "Enter New User Details in the fields below"
+7.Get Username && UserID && Number && Password
+8.If{Username && Number exist in DB}
+	Print ("User already Exists!")
+	Cancel Action	
+  Else
+	Store Values in System
+	Create new User
+  EndIf
+9.Display Dashboard
+
+END
+
+
+MODIFY USER
+
+START
+
+1.Select Username
+2.Display (Modify/ Delete)
+3.Select Modify
+4.Do necessary changes to Account
+5.Select Save
+6.Display Dashboard
+
+END
+
+
+DELETE USER
+
+START
+
+1.Select Username
+2.Display (Modify/ Delete)
+3.Select Delete
+4.Print ("Do you want to delete this account")
+5.If {Yes}
+	Then Delete Account
+  Else
+	Cancel Action
+  End If
+6.Display Dashboard
+
+END
+
+
+VIEW USER STATUS
+
+START
+
+1.Select Username
+2.If {User = Online} 
+	Then Print "Online"
+  Else 
+	Print "Offline"
+  End If
+
+END
+
+
+VIEW USER LOG
+
+START
+
+1.Select Username
+2.Fetch User Activity Log from System
+3.Display User Activity Log
+
+END
+
+
+ADD / REMOVE PRIVILEGES
+
+START
+
+1.Select Username
+2.Display Privileges
+3.Fill / Unfill checkboxes
+4.If {checkbox is filled}
+	Then enable privilege
+  Else
+	Disable privilege
+  End If  
+END
+
+
+SET RESTRICTIONS
+
+START
+
+1.Select Username
+2.Display Account restrictions
+3.Fill / Unfill Checkbox
+4.If {Check box is filled}
+	Then Disable Account
+	Print("This account has been disable successfully")
+  Else
+	Enable Account
+	Print("This account has been enabled successfully")
+  End If
+  END
+
