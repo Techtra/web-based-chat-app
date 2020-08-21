@@ -1,4 +1,4 @@
- SEE FELLOW MANAGERS AND EMPLOYEES
+//SEE FELLOW MANAGERS AND EMPLOYEES
 
 START
 
@@ -13,25 +13,29 @@ End If
 END
 
 
-HAVE CHOICE TO BE INVISIBLE TO EMPLOYEES BUT NOT OTHER MANAGERS AND EXECUTIVES
+//HAVE CHOICE TO BE INVISIBLE TO EMPLOYEES BUT NOT OTHER MANAGERS AND EXECUTIVES
 
 START
 
-1.Set UserTypeID && UserName = UserTypeID && UserName in DB.
-2.Select Checkbox to be invisible
-3.Repeat While User Exists
-	If {Recipient UserTypeID = Employee UserTypeID}
-		THEN
-		Display UserName in Recipient ChatBox UI
-	Else
-		Hide UserName in Recipient ChatBox UI
-	ENDIF
-  End Repeat
+1.SET UserTypeID && UserName = UserTypeID && UserName in DB.
+2.SELECT Checkbox to be invisible
+3.IF {Checkbox is ticked}
+	THEN
+	REPEAT While User Exists
+		IF {Recipient UserTypeID = Employee UserTypeID}
+			THEN
+			DISPLAY UserName in Recipient ChatBox UI
+		ELSE
+			HIDE UserName in Recipient ChatBox UI
+		ENDIF
+  	END REPEAT
+  ELSE
+	HIDE UserName in Recipient ChatBox UI
 
 END
 
 
-BE ABLE TO CREATE CHATROOMS
+//BE ABLE TO CREATE CHATROOMS
 
 START
 
@@ -74,7 +78,7 @@ START
 END
 
 
-BE ABLE TO ACCESS THE DASHBOARD
+//BE ABLE TO ACCESS THE DASHBOARD
 
 START
 

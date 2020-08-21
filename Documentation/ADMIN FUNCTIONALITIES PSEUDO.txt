@@ -1,143 +1,143 @@
 ADMIN FUNCTIONALITIES PSEUDO_CODE
 
-LOGIN
+//LOGIN
 
 START
 
-1.Set Admin_Username && Admin_Password && Admin_Number == null
-2.Input Username && Password && Number
-3.If {Username == Admin_Username && Password = Admin_Password && Number = Admin_Number}
+1.SET Admin_Username && Admin_Password && Admin_Number == null
+2.INPUT Username && Password && Number
+3.IF {Username == Admin_Username && Password = Admin_Password && Number = Admin_Number}
 	Then Log In
 	Display Dashboard
-  Else
-	Print ("Admin Username or Password may be incorrect")
-	Clear Username && Password && Number
-  End If
+  ELSE
+	PRINT ("Admin Username or Password may be incorrect")
+	CLEAR Username && Password && Number
+  ENDIF
 END
 
 
-LOGOUT
+//LOGOUT
 
 START
 
-1.Print ("Are you sure you wish to logout")
-2.If {Yes}
+1.PRINT ("Are you sure you wish to logout")
+2.IF {Yes}
 	End User Session
-  Else
+  ELSE
 	Display Dashboard
-  End If
+  ENDIF
 
 END
 
 
-ADD NEW USER
+//ADD NEW USER
 
 START
 
-1.Declare UserName as string
-2.Declare UserID as Integer
-3.Declare Number as Integer
-4.Declare Password as string
-5.Set Username && UserID && Number && Password == null
-6.Display "Enter New User Details in the fields below"
-7.Get Username && UserID && Number && Password
-8.If{Username && Number exist in DB}
-	Print ("User already Exists!")
-	Cancel Action	
-  Else
-	Store Values in System
-	Create new User
-  EndIf
-9.Display Dashboard
+1.DECLARE UserName as string
+	 UserID as Integer
+	 Number as Integer
+	 Password as string
+2.SET Username && UserID && Number && Password == null
+3.DISPLAY "Enter New User Details in the fields below"
+4.GET Username && UserID && Number && Password
+8.IF{Username && Number exist in DB}
+	PRINT ("User already Exists!")
+	CANCEL Action	
+  ELSE
+	STORE Values in System
+	CREATE new User
+  ENDIF
+9.DISPLAY Dashboard
 
 END
 
 
-MODIFY USER
+//MODIFY USER
 
 START
 
-1.Select Username
-2.Display (Modify/ Delete)
-3.Select Modify
-4.Do necessary changes to Account
-5.Select Save
-6.Display Dashboard
+1.SELECT Username
+2.DISPLAY (Modify/ Delete)
+3.SELECT Modify
+4.APPLY necessary changes to Account
+5.SELECT Save
+6.DISPLAY Dashboard
 
 END
 
 
-DELETE USER
+//DELETE USER
 
 START
 
-1.Select Username
-2.Display (Modify/ Delete)
-3.Select Delete
-4.Print ("Do you want to delete this account")
-5.If {Yes}
-	Then Delete Account
-  Else
-	Cancel Action
-  End If
-6.Display Dashboard
+1.SELECT Username
+2.DISPLAY (Modify/ Delete)
+3.SELECT Delete
+4.PRINT ("Do you want to delete this account")
+5.IF {Yes}
+	THEN Delete Account
+  ELSE
+	CANCEL Action
+  ENDIF
+6.DISPLAY Dashboard
 
 END
 
 
-VIEW USER STATUS
+//VIEW USER STATUS
 
 START
 
-1.Select Username
-2.If {User = Online} 
-	Then Print "Online"
-  Else 
-	Print "Offline"
-  End If
+1.SELECT Username
+2.IF {User = Online} 
+	THEN Print "Online"
+  ELSE 
+	PRINT "Offline"
+  ENDIF
 
 END
 
 
-VIEW USER LOG
+//VIEW USER LOG
 
 START
 
-1.Select Username
-2.Fetch User Activity Log from System
-3.Display User Activity Log
+1.SELECT Username
+2.FETCH User Activity Log from System
+3.DISPLAY User Activity Log
 
 END
 
 
-ADD / REMOVE PRIVILEGES
+//ADD / REMOVE PRIVILEGES
 
 START
 
-1.Select Username
-2.Display Privileges
-3.Fill / Unfill checkboxes
-4.If {checkbox is filled}
-	Then enable privilege
-  Else
-	Disable privilege
-  End If  
+1.SELECT Username
+2.DISPLAY Privileges
+3.TICK / UNTICK checkboxes
+4.IF {checkbox is filled}
+	THEN enable privilege
+  ELSE
+	DISABLE privilege
+  ENDIF  
 END
 
 
-SET RESTRICTIONS
+//SET RESTRICTIONS
 
 START
 
-1.Select Username
-2.Display Account restrictions
-3.Fill / Unfill Checkbox
-4.If {Check box is filled}
-	Then Disable Account
-	Print("This account has been disable successfully")
-  Else
-	Enable Account
-	Print("This account has been enabled successfully")
-  End If
+1.SELECT Username
+2.DISPLAY Account restrictions
+3.TICK / UNTICK Checkbox
+4.IF {Check box is filled}
+	THEN Disable Account
+	PRINT("This account has been disable successfully")
+  ELSE
+	ENABLE Account
+	PRINT("This account has been enabled successfully")
+  ENDIF
   END
 
