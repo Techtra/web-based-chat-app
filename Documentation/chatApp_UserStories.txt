@@ -5,16 +5,17 @@ TYPES OF USERS
 	• Executive
 
 Admin
-	• As an admin, I should be able to log into the system so that I can have excess to the system
+	• As an admin, I should be able to log into the system so that I can have access to the system
 	• As an admin, I should be able to log out of the system so that I can prevent unauthorised access to the system when I am not around
-	• As an admin, I should be able add a user so that unauthorised users can be prevented from getting access to the system
-	• As an admin, I should be able to modify a user so that unneeded user accounts can be removed 
-	• As an admin, I should be able to remove a user so that user accounts with discrepancies can be corrected
+	• As an admin, I should be able to add a user so that unauthorised users can be prevented from getting access to the system
+	• As an admin, I should be able to modify a user so that I can make changes in the user's privileges and settings 
+	• As an admin, I should be able to remove a user so that unneeded user accounts can be deleted from the system
 	• As an admin, I should be able to view users and their status so that I can know the active and inactive user accounts
-	• As an admin, I should be able to set restrictions so that I can disable or enable user accounts
+	• As an admin, I should be able to enable and disable users so that inactive users due to leave or any other reason apart from resigning can still be in the system
 	• As an admin, I should be able to view logs of user activities
 	• As an admin, I should be able to add or remove user privileges so that certain users can have additional functionalities
 	• As an admin, I should be able to see online status of users
+	• As an admin, I should be able to see data of total messages sent, bytes used and other relevant data so that I can have an insight of the system's usage for better planning
 
 	
 	
@@ -40,8 +41,13 @@ User Stories: manager
 	• As a manager, I should be able to see fellow managers and employees so that I can easily send messages
 	• As a manager, I should have the choice to be invisible to employees but not other managers and executives so that I can reduce the number of incoming messages.
 	• As a manager, I should be able to create chat rooms and send invites for others to join the chatroom so that I can have a singular platform to relay a message.
-	
+	• As a manager, I should be able to see data of total messages sent, bytes used and other relevant data so that I can have an insight of the system's usage for better planning
+	• As a manager, I should be able to have access to the database so that I can have a clear overview of the system's usage
+	• As a manager, I should be able to grant access to employees to create chatrooms so that they can create a platform for group message 
 User Stories: executive
 	• As an executive, I should see fellow executives, managers and all other employees so that I can easily send messages
 	• As an executive, I should have the choice to be visible to employees and managers but not other executive so that I can reduce the number of incoming messages
 	• As an executive, I should be able to create chat rooms and send invites for others to join the chatroom so that I can have a singular platform to relay a message.
+	• As an executive, I should be able to see data of total messages sent, bytes used and other relevant data so that I can have an insight of the system's usage for better planning
+	• As an executive, I should be able to have access to the database so that I can have a clear overview of the system's usage
+	• As an executive, I should be able to grant access to employees to create chatrooms so that they can create a platform for group message

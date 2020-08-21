@@ -1,0 +1,213 @@
+//EMPLOYEE PSEUDOCODES
+
+
+//LOGIN
+
+START
+1. DISPLAY login screen
+2. READ user email and password from keyboard
+3. SET Email & Password varialbe = email & password
+4. IF email & password == email & password in database
+	DISPLAY login successful
+	DISPLAY chat interface
+   ELSE
+	DISPLAY invalid credentials
+	PROMPT user to enter new email & password
+   ENDIF
+END
+
+
+//LOGOUT
+
+START
+1. SELECT logout
+2. PROMPT user to confirm logout
+3. IF user confirms logout
+	STOP user session
+   ENDIF
+END
+		
+
+//PASSWORD RESET
+
+START
+1. SELECT password reset
+2. INITIALISE token
+3. SEND token to user's email
+4. PROMPT user to enter token sent
+5. IF token == initialised token
+	PROMPT user to enter old password & new password & confirm new password
+	IF password == old password
+		SET password = new password
+   	ELSE 
+		DISPLAY invalid password
+		PROMPT user to reenter old password
+	ENDIF
+   ELSE
+	DISPLAY invalid token
+	PROMPT user to re-enter token
+   ENDIF
+END
+
+
+//SEND MESSAGES
+
+START
+1. SELECT message receipient
+2. SET receipient_id to selected receipient_id
+3. READ message from keyboard
+4. SET sender id & message variables = sender's id & message
+5. IF message is sent
+	DISPLAY sent
+   ENDIF
+END
+
+
+//THREAD OF USERS
+
+START
+1. SET name by user_id
+2. REPEAT WHILE user exits in database
+	DISPLAY user name
+   END REPEAT
+END
+
+
+//PIN USER
+
+START
+1. SELECT user by user_id
+2. SET pinned_id = user_id
+3. REPEAT WHILE pinned_ids exist in database
+	DISPLAY pinned users
+   END REPEAT
+END
+
+
+//FREQUENTLY CONTACTED USERS
+
+START
+1. FOREEACH reciepient, 
+	SET message_counter
+   END FOREACH
+2. IF reciepient message_counter > 0
+	SORT most contacted users in descending orders
+   END IF
+3. REPEAT WHILE most_contacted_users <=5 
+	DISPLAY most_contacted_users in frequently contacted section
+   END REPEAT
+END
+
+
+//DISPLAYING LIST OF PERSONNEL USER CAN CHAT
+
+START
+1. SET name by user_id
+2. IF receipients employee_type_id = user's employee_type_id
+	REPEAT WHILE user exits in database
+		DISPLAY user's name
+   	END REPEAT
+   ENDIF
+END
+
+
+//SET STATUS FROM LIST OF PRESET STATUSES
+
+START
+1. SELECT set status
+2. DISPLAY set status page
+3. REPEAT WHILE preset statuses exist in database
+	DISPLAY status
+   END REPEAT
+4. READ user's input
+5. SET user status_id = selected status_id
+6. DISPLAYuser status
+END
+
+
+//DISPLAY AND REPLY NOTIFICATION OF RECEIVED MESSAGES 
+
+START
+1. READ database for incomming message
+2. IF new message exists
+	DISPLAY new message & sender name
+	READ user message from keybaord
+	SET sender id & receipient id & message variables = sender's id & receipient id & message
+		IF message is sent
+			DISPLAY sent
+   		ENDIF
+   ENDIF
+END
+
+
+//SCHEDULE TASK
+
+START
+1. SELECT task schedule
+2. DISPLAY task schedular interface
+3. READ task title & body from keyboard
+4. SET task title & body variable & due date/time = task title & body & due date/time
+5. DISPLAY task
+END
+
+
+//EDIT TASK
+
+START
+1. SELECT task_edit
+2. DISPLAY task interface
+3. REPEAT WHILE task exist in database
+	DISPLAY task
+   END REPEAT
+2. READ user task selection
+3. DISPLAY selected task details
+4. READ user inputs from keyboard
+5. SET task title & body variable & due date/time = new task title & body & new date/time
+END
+
+
+//DELETE TASK
+
+START
+1. SELECT task_delete
+2. DISPLAY task interface
+3. REPEAT WHILE task exist in database
+	DISPLAY task
+   END REPEAT
+2. READ user task selection
+4. PROPMT user to confirm deletion
+5. READ user's input from keyboard
+6. IF user confirms deletion
+	REMOVE task record from database
+   ENDIF
+END
+
+
+//SEE LIST OF COMPLETED TASK
+
+START
+1. SELECT completed_task
+2. DISPLAY completed_task interface
+3. REPEAT WHILE task exist in database
+	IF taskComplete = true
+		DISPLAY task
+	ENDIF
+   END REPEAT
+END
+
+
+//SEE LIST OF PENDING TASK
+
+START
+1. SELECT completed_task
+2. DISPLAY completed_task interface
+3. REPEAT WHILE task exist in database
+	IF taskComplete = false
+		DISPLAY task
+	ENDIF
+   END REPEAT
+END
+
+
+
+
