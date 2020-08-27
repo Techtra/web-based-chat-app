@@ -15,7 +15,7 @@ class CreateGroupTable extends Migration
     {
         Schema::create('group', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('name');
+            $table->text('name');
             $table->dateTime('created_at')->nullable();
         });
     }
