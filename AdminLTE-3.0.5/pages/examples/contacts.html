@@ -12,9 +12,17 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<style>
+  td{
+    text-align:left;
+  }
+  th{
+    text-align:right;
+  }
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -145,12 +153,12 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="../../index.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">ChatApp</span>
     </a>
 
     <!-- Sidebar -->
@@ -171,528 +179,38 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="../../index.html" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
+                  <p>Dashboard</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
+    
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-user"></i>
               <p>
-                Layout Options
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Charts
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                UI Elements
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../UI/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/icons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/buttons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/sliders.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/modals.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/navbar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Navbar & Tabs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/timeline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Timeline</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../UI/ribbons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Forms
+                Users
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="../forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
+                  <p>Add New User</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="../forms/advanced.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
+                  <p>View All Users</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="../forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
-            <a href="../calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="../gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Mailbox
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inbox</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Compose</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../mailbox/read-mail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/e-commerce.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>E-commerce</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/projects.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projects</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/project-add.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/project-edit.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/project-detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
-                </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="../examples/contacts.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contacts</p>
+                  <p>View All Users</p>
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>
-                Extras
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../examples/login.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Login</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/register.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/forgot-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Forgot Password</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/recover-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Recover Password</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/lockscreen.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lockscreen</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/legacy-user-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Legacy User Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/language-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Language Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/404.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 404</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/500.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 500</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/pace.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pace</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/blank.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../starter.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Starter Page</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">MISCELLANEOUS</li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
-            </a>
-          </li>
-          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-circle nav-icon"></i>
-              <p>Level 1</p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
-              <p>
-                Level 1
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
-                </a>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Level 2
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Level 2</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-circle nav-icon"></i>
-              <p>Level 1</p>
-            </a>
-          </li>
-          <li class="nav-header">LABELS</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Important</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Warning</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Informational</p>
-            </a>
           </li>
         </ul>
       </nav>
@@ -702,18 +220,18 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" >
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Contacts</h1>
+            <h1 style="font-weight: 800;">ALL USERS</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Contacts</li>
+              <li class="breadcrumb-item active">All Users</li>
             </ol>
           </div>
         </div>
@@ -721,298 +239,409 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" id="blur"
 
       <!-- Default box -->
       <div class="card card-solid">
         <div class="card-body pb-0">
           <div class="row d-flex align-items-stretch">
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
+            <div class="col-sm-4">
+            <div class="small-box bg-info" >
                 <div class="card-header text-muted border-bottom-0">
                   Digital Strategist
                 </div>
                 <div class="card-body pt-0">
                   <div class="row">
-                    <div class="col-7">
+                    <div class="col-8">
                       <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                      <ul class="ml-2 mb-0 fa-ul text-muted">
+                        <li class = "small">
+                          <p style="font-weight: 500;font-size:11px">
+                            <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                          </p>
+                        </li>
+
+                        <li class = "small">
+                          <p style="font-weight: 500;font-size:11px">
+                            <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                          </p>
+                        </li>
+                      
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
+                    <div class="col-4 text-center">
                       <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
                     </div>
                   </div>
                 </div>
                 <div class="card-footer">
                   <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
+                    <a href="#" onclick="toggle()" class="btn btn-sm">
+                      <i class="fas fa-search-plus"></i>
                     </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                    <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                      <i class="fas fa-edit"></i>
                     </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user2-160x160.jpg" alt="" class="img-circle img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
+                    <a href="#" class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i> Delete
                     </a>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+            <div class="col-sm-4">
+              <div class="small-box bg-info" >
+                  <div class="card-header text-muted border-bottom-0">
+                    Digital Strategist
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="row">
+                      <div class="col-8">
+                        <h2 class="lead"><b>Nicole Pearson</b></h2>
+                        <ul class="ml-2 mb-0 fa-ul text-muted">
+                          <li class = "small">
+                            <p style="font-weight: 500;font-size:11px">
+                              <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                            </p>
+                          </li>
+  
+                          <li class = "small">
+                            <p style="font-weight: 500;font-size:11px">
+                              <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                            </p>
+                          </li>
+                        
+                        </ul>
+                      </div>
+                      <div class="col-4 text-center">
+                        <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
+                  <div class="card-footer">
+                    <div class="text-right">
+                      <a href="/pages/forms/edit.html" class="btn btn-sm">
+                        <i class="fas fa-search-plus"></i>
+                      </a>
+                      <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                        <i class="fas fa-edit"></i>
+                      </a>
+                      <a href="#" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash"></i> Delete
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
+              <div class="col-sm-4">
+                <div class="small-box bg-info" >
+                    <div class="card-header text-muted border-bottom-0">
+                      Digital Strategist
                     </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user2-160x160.jpg" alt="" class="img-circle img-fluid">
+                    <div class="card-body pt-0">
+                      <div class="row">
+                        <div class="col-8">
+                          <h2 class="lead"><b>Nicole Pearson</b></h2>
+                          <ul class="ml-2 mb-0 fa-ul text-muted">
+                            <li class = "small">
+                              <p style="font-weight: 500;font-size:11px">
+                                <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                              </p>
+                            </li>
+    
+                            <li class = "small">
+                              <p style="font-weight: 500;font-size:11px">
+                                <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                              </p>
+                            </li>
+                          
+                          </ul>
+                        </div>
+                        <div class="col-4 text-center">
+                          <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                    <div class="card-footer">
+                      <div class="text-right">
+                        <a href="/pages/forms/edit.html" class="btn btn-sm">
+                          <i class="fas fa-search-plus"></i>
+                        </a>
+                        <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-danger">
+                          <i class="fas fa-trash"></i> Delete
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                <div class="col-sm-4">
+                  <div class="small-box bg-info" >
+                      <div class="card-header text-muted border-bottom-0">
+                        Digital Strategist
+                      </div>
+                      <div class="card-body pt-0">
+                        <div class="row">
+                          <div class="col-8">
+                            <h2 class="lead"><b>Nicole Pearson</b></h2>
+                            <ul class="ml-2 mb-0 fa-ul text-muted">
+                              <li class = "small">
+                                <p style="font-weight: 500;font-size:11px">
+                                  <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                                </p>
+                              </li>
+      
+                              <li class = "small">
+                                <p style="font-weight: 500;font-size:11px">
+                                  <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                                </p>
+                              </li>
+                            
+                            </ul>
+                          </div>
+                          <div class="col-4 text-center">
+                            <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="text-right">
+                          <a href="/pages/forms/edit.html" class="btn btn-sm">
+                            <i class="fas fa-search-plus"></i>
+                          </a>
+                          <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                            <i class="fas fa-edit"></i>
+                          </a>
+                          <a href="#" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash"></i> Delete
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
+                  <div class="col-sm-4">
+                    <div class="small-box bg-info" >
+                        <div class="card-header text-muted border-bottom-0">
+                          Digital Strategist
+                        </div>
+                        <div class="card-body pt-0">
+                          <div class="row">
+                            <div class="col-8">
+                              <h2 class="lead"><b>Nicole Pearson</b></h2>
+                              <ul class="ml-2 mb-0 fa-ul text-muted">
+                                <li class = "small">
+                                  <p style="font-weight: 500;font-size:11px">
+                                    <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                                  </p>
+                                </li>
+        
+                                <li class = "small">
+                                  <p style="font-weight: 500;font-size:11px">
+                                    <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                                  </p>
+                                </li>
+                              
+                              </ul>
+                            </div>
+                            <div class="col-4 text-center">
+                              <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="text-right">
+                            <a href="/pages/forms/edit.html" class="btn btn-sm">
+                              <i class="fas fa-search-plus"></i>
+                            </a>
+                            <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                              <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="#" class="btn btn-sm btn-danger">
+                              <i class="fas fa-trash"></i> Delete
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src="../../dist/img/user2-160x160.jpg" alt="" class="img-circle img-fluid">
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> View Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <div class="col-sm-4">
+                      <div class="small-box bg-info" >
+                          <div class="card-header text-muted border-bottom-0">
+                            Digital Strategist
+                          </div>
+                          <div class="card-body pt-0">
+                            <div class="row">
+                              <div class="col-8">
+                                <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                <ul class="ml-2 mb-0 fa-ul text-muted">
+                                  <li class = "small">
+                                    <p style="font-weight: 500;font-size:11px">
+                                      <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                                    </p>
+                                  </li>
+          
+                                  <li class = "small">
+                                    <p style="font-weight: 500;font-size:11px">
+                                      <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                                    </p>
+                                  </li>
+                                
+                                </ul>
+                              </div>
+                              <div class="col-4 text-center">
+                                <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-footer">
+                            <div class="text-right">
+                              <a href="/pages/forms/edit.html" class="btn btn-sm">
+                                <i class="fas fa-search-plus"></i>
+                              </a>
+                              <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                                <i class="fas fa-edit"></i>
+                              </a>
+                              <a href="#" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i> Delete
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="small-box bg-info" >
+                            <div class="card-header text-muted border-bottom-0">
+                              Digital Strategist
+                            </div>
+                            <div class="card-body pt-0">
+                              <div class="row">
+                                <div class="col-8">
+                                  <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                  <ul class="ml-2 mb-0 fa-ul text-muted">
+                                    <li class = "small">
+                                      <p style="font-weight: 500;font-size:11px">
+                                        <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                                      </p>
+                                    </li>
+            
+                                    <li class = "small">
+                                      <p style="font-weight: 500;font-size:11px">
+                                        <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                                      </p>
+                                    </li>
+                                  
+                                  </ul>
+                                </div>
+                                <div class="col-4 text-center">
+                                  <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-footer">
+                              <div class="text-right">
+                                <a href="/pages/forms/edit.html" class="btn btn-sm">
+                                  <i class="fas fa-search-plus"></i>
+                                </a>
+                                <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-danger">
+                                  <i class="fas fa-trash"></i> Delete
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="small-box bg-info" >
+                              <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                              </div>
+                              <div class="card-body pt-0">
+                                <div class="row">
+                                  <div class="col-8">
+                                    <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                    <ul class="ml-2 mb-0 fa-ul text-muted">
+                                      <li class = "small">
+                                        <p style="font-weight: 500;font-size:11px">
+                                          <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                                        </p>
+                                      </li>
+              
+                                      <li class = "small">
+                                        <p style="font-weight: 500;font-size:11px">
+                                          <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                                        </p>
+                                      </li>
+                                    
+                                    </ul>
+                                  </div>
+                                  <div class="col-4 text-center">
+                                    <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-footer">
+                                <div class="text-right">
+                                  <a href="/pages/forms/edit.html" class="btn btn-sm">
+                                    <i class="fas fa-search-plus"></i>
+                                  </a>
+                                  <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                                    <i class="fas fa-edit"></i>
+                                  </a>
+                                  <a href="#" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="small-box bg-info" >
+                                <div class="card-header text-muted border-bottom-0">
+                                  Digital Strategist
+                                </div>
+                                <div class="card-body pt-0">
+                                  <div class="row">
+                                    <div class="col-8">
+                                      <h2 class="lead"><b>Nicole Pearson</b></h2>
+                                      <ul class="ml-2 mb-0 fa-ul text-muted">
+                                        <li class = "small">
+                                          <p style="font-weight: 500;font-size:11px">
+                                            <i class="fas fa-lg fa-envelope"></i> edwardaddo77@gmail.com
+                                          </p>
+                                        </li>
+                
+                                        <li class = "small">
+                                          <p style="font-weight: 500;font-size:11px">
+                                            <i class="fas fa-lg fa-phone"></i> +233 243 323 2312               
+                                          </p>
+                                        </li>
+                                      
+                                      </ul>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                      <img src="../../dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="text-right">
+                                    <a href="/pages/forms/edit.html" class="btn btn-sm">
+                                      <i class="fas fa-search-plus"></i>
+                                    </a>
+                                    <a href="/pages/forms/edit.html" class="btn btn-sm bg-teal">
+                                      <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-danger">
+                                      <i class="fas fa-trash"></i> Delete
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                                                                                    
           </div>
         </div>
         <!-- /.card-body -->
@@ -1035,6 +664,99 @@
       <!-- /.card -->
 
     </section>
+
+    <!-- Modal page -->
+    <div id="popup">
+      <div class="col-lg-12">
+        <h2 style="text-align:center;font-weight: 600;border-bottom: solid grey 1px;">
+          VIEW USER
+        </h2>
+      </div>
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-9">
+            <table style ="width:100%; padding:12px; font-size:14px;">
+             <tr>
+               <th>
+                 Name
+               </th>
+               <td>
+                 Edward Hayford Addo
+               </td>
+             </tr>
+             <tr>
+               <th>
+                 Email
+               </th>
+               <td>
+                 edwardaddo77@gmail.com
+               </td>
+             </tr>
+             <tr>
+               <th>
+                 Mobile Number
+               </th>
+               <td>
+                 0557553290
+               </td>
+               <tr>
+                 <th>
+                   Date Added
+                 </th>
+                 <td>
+                   2020-09-01
+                 </td>
+               </tr>
+               <tr>
+                 <th>
+                   Date Modified
+                 </th>
+                 <td>
+                   2020-09-02
+                 </td>
+                 <tr>
+                   <th>
+                     Address
+                   </th>
+                   <td>
+                     Plot 602, Lomnava. Accra
+                   </td>
+                 </tr>
+               </tr>
+             </tr>
+            </table>
+           </div>
+           <div class="col-lg-3">
+           <!-- Default switch -->
+             <div class="custom-control custom-switch">
+               <input type="checkbox" class="custom-control-input" id="customSwitches">
+               <label class="custom-control-label" for="customSwitches"style="font-size:10px;">Disable Account</label>
+             </div>
+           </div>
+         </div>
+        </div>
+        <br>
+        <div class="col-lg-12">
+          <h6 style="text-align:center;font-weight: 600;border-bottom:solid grey 1px;">
+            ACTIVITY LOGS
+          </h6>
+        </div>
+        <div class="col-lg-12">
+          <table style ="width:100%; padding:12px; font-size:14px;" >
+            <tr>
+              <th>
+                Scheduled a task for 2020-14-09 16:00:00
+              </th>
+              <td>
+                2020-01-09 08:00:00
+              </td>
+            </tr>
+          </table>
+        </div>
+      <a href="#" onclick="toggle()" class="btn btn-sm">
+        <i class="fas fa-search-plus"></i>
+      </a>
+    </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -1063,5 +785,13 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script type ="text/javascript">
+  function toggle(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active')
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('active')
+  }
+</script>
 </body>
 </html>
