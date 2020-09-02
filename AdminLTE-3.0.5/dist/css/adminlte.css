@@ -593,6 +593,26 @@ pre code {
   transition:0.5s;
 }
 
+#delpop{
+  position:fixed;
+  top:40%;
+  left:60%;
+  transform:translate(-50%, -50%);
+  width:350px;
+  padding:30px;
+  box-shadow:0 5px 30px rgba(0,0,0,.30);
+  background:#fff;
+  visibility: hidden;
+  opacity:0;
+  transition:0.5s;
+}
+#delpop.active{
+  top:50%;
+  visibility: visible;
+  opacity:1;
+  transition:0.5s;
+}
+
 
 @media (min-width: 576px) {
   .container {
@@ -19114,6 +19134,8 @@ html.maximized-card {
   display: block;
   margin-bottom: 20px;
   position: relative;
+  padding:12px;
+
 }
 div #e_Card:hover {
  filter:invert(.8);
@@ -19567,7 +19589,7 @@ div #t_users:hover {
 .products-list > .item {
   border-radius: 0.25rem;
   background: #ffffff;
-  padding: 1px 0;
+  padding: 1.5px 0;
 }
 
 .products-list > .item::after {
