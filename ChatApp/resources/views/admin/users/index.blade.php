@@ -33,22 +33,22 @@
             <div class="col-sm-4" >
               <div class="small-box bg-info" >
                 <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
+                  {{$user->type? $user->type->name : '' }}
                 </div>
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-8">
-                      <h2 class="lead"><b>{{$user -> name}}</b></h2>
+                      <h2 class="lead"><b>{{$user->name}}</b></h2>
                       <ul class="ml-2 mb-0 fa-ul text-muted">
                         <li class = "small">
                           <p style="font-weight: 500;font-size:11px">
-                            <i class="fas fa-lg fa-envelope"></i> {{$user -> email}}
+                            <i class="fas fa-lg fa-envelope"></i> {{$user->email}}
                           </p>
                         </li>
 
                         <li class = "small">
                           <p style="font-weight: 500;font-size:11px">
-                            <i class="fas fa-lg fa-phone"></i> {{$user -> phone}}               
+                            <i class="fas fa-lg fa-phone"></i> {{$user->phone}}               
                           </p>
                         </li>
                       

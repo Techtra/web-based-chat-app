@@ -34,7 +34,7 @@
               <div class="inner">
                 <p style ="font-weight:500">Total Users</p>
 
-                <h3>{{count(\App\User::all())}}</h3>
+                <h3>{{count(\App\User::where('type_id', '<>', 1)->get()) }}</h3>
               </div>
               <div class="icon" >
                 <i class="fa fa-users" style="font-size: 135px;"></i>
@@ -82,7 +82,7 @@
                   <div class="inner">
                     <p style="margin-bottom: 0px; font-weight:500;">Total Employees</p>
     
-                    <p style ="font-weight:500;font-size: 50px; margin-bottom: 0px;">10</p>
+                  <p style ="font-weight:500;font-size: 50px; margin-bottom: 0px;">{{count(\App\User::where('type_id', '=', 4)->get()) }}</p>
                   </div>
                   <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -97,7 +97,7 @@
                   <div class="inner">
                     <p style="margin-bottom: 0px;font-weight:500">Total Managers</p>
     
-                    <p style ="font-weight:500;font-size: 50px; margin-bottom: 0px;">7</p>
+                    <p style ="font-weight:500;font-size: 50px; margin-bottom: 0px;">{{count(\App\User::where('type_id', '=', 3)->get()) }}</p>
                   </div>
                   <div class="icon">
                     <i class="ion ion-person-add"></i>
@@ -112,7 +112,7 @@
                   <div class="inner">
                     <p style="margin-bottom: 0px; font-weight:500; margin-bottom: 0px;">Total Executives</p>
     
-                    <p style ="font-weight:500; font-size: 50px; margin-bottom: 0px; ">3</p>
+                    <p style ="font-weight:500; font-size: 50px; margin-bottom: 0px; ">{{count(\App\User::where('type_id', '=', 2)->get()) }}</p>
                   </div>
                   <div class="icon">
                     <i class="ion ion-pie-graph"></i>
