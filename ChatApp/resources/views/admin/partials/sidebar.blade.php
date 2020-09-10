@@ -41,11 +41,13 @@
               </li>
               @endcan
 
+              @can('manage-users')
               <li class="nav-item">
                 <a href="{{ route('users.index')}}" class="nav-link">
                   <p>View All Users</p>
                 </a>
               </li>
+              @endcan
             </ul>
           </li>
         </ul>

@@ -70,7 +70,7 @@
                     <div class="form-group row">
                       <label for="mobilenumber" class="col-sm-2 col-form-label">Number</label>
                         <div class="col-sm-10">
-                          <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"  value= "{{ old('phone') }}"id="phone" style="border-radius:0px;" placeholder="Enter mobile number">
+                          <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"  value= "{{ $user->phone }}"id="phone" style="border-radius:0px;" placeholder="Enter mobile number">
                              @error('phone')
                                <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -82,17 +82,20 @@
                     <div class="form-group row">
                         <label for="UserTypes" class="col-sm-2 col-form-label">User Type</label>
                         <div class="col-sm-10">
-                        <select name="User Types" class ="form-control" id="inputPassword3" style = "border-radius:0px;">
-                        <option>
-                            Employee
-                        </option>
-                        <option>
-                            Manager
-                        </option>
-                        <option>
-                            Executive
-                        </option>
-                        </select>
+                          <select name="type_id" class ="form-control" id="userType" style = "border-radius:0px;">
+                           
+                            @foreach(\App\UserType::all() as $type)
+                              <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                            
+                          </select>
+    
+                            @error('type_id')
+                              <span class="invalid-feedback" role="alert">
+                               <strong>{{ $message }}</strong>
+                              </span>
+                            @enderror
+
                         </div>
                     </div>
 

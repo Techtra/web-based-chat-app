@@ -106,17 +106,19 @@
                   <div class="form-group row">
                     <label for="UserTypes" class="col-sm-2 col-form-label">User Type</label>
                     <div class="col-sm-10">
-                      <select name="User Types" class ="form-control" id="inputPassword3" style = "border-radius:0px;">
-                      <option>
-                        Employee
-                      </option>
-                      <option>
-                        Manager
-                      </option>
-                      <option>
-                        Executive
-                      </option>
+
+                      <select name="type_id" class ="form-control" id="userType" style = "border-radius:0px;">
+                        @foreach(\App\UserType::all() as $type)
+                          <option value="{{$type->id}}">{{$type->name}}</option>
+                        @endforeach
                       </select>
+
+                        @error('type_id')
+                          <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+
                     </div>
                   </div>
                   <br>
