@@ -69,8 +69,6 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <a href="/dashboard/login/task.html"> click
-            </a>
           </div>
 
 

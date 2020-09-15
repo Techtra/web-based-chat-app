@@ -14,7 +14,7 @@ class AddStatusIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('status_id')->nullable()->change();
+            $table->integer('status_id')->nullable();
         });
     }
 

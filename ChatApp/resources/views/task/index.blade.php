@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Chat</title>
   <!-- <Raleway font> -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,12 +15,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{asset('dashboard/dist/css/adminlte.css')}}">
   <link rel="stylesheet" href="{{asset('dashboard/plugins/fontawesome-free/css/all.min.css')}}">
+  <script>
+        var base_url = '{{ url("/") }}';
+    </script>
   <style>
       th{
           padding:12px;
           text-align:right;
           font-size:17px;
           text-align:right;
+          width:150px;
       }
       td{
           padding-left:8px;
@@ -42,18 +48,17 @@
                         <p style="padding-top:5%; margin-bottom:3%; font-weight: 600;">
                         {{Auth::user()->name}}
                         </p>
-                        <form action="#" method="GET" id="myform">
+                        <form action="{{route ('patch.user.update' , Auth::user()->id)}}" method="POST" id="myform">
+                            {{method_field('PATCH')}}
+                                @csrf
+                           
                             <div class="form row">
-                                <select name="Status" class ="form-status" id="status" onchange='submitForm();' style = "border-radius:0px; border:0px;">
-                                    <option>
-                                        Available
-                                      </option>
-                                      <option>
-                                        Out of Office
-                                      </option>
-                                      <option>
-                                        Off-desk
-                                      </option>
+                                <select name="status" class ="form-status" id="status" onchange='submitForm();' style = "border-radius:0px; border:0px;">
+                                @foreach(\App\Status::all() as $status)
+                                    <option value="{{$status->id}}" {{Auth::user()->status_id == $status->id ? 'selected' : ''}}>
+                                        {{$status->status_body}}
+                                    </option>
+                                @endforeach
                                 </select>
                               </div>
                         </form>
@@ -71,7 +76,7 @@
                 <h4 style="font-weight:700;font-size:22px; margin-left:80px; margin-top:10px;font-family: montserrat;">
                     <i class="fas fa-tasks"></i> 
                     <span style="margin-left:20px">
-                        TASK SCHEDULER
+                        TASK SCHEDULER 
                     </span>
                 </h4>
 
@@ -94,14 +99,12 @@
             <div class="row">
                 <div style="background-color: #535353; column-width: 65px; min-height: 600px; text-align:center">
                     <div class="iconscenter">
-
+                        @can('manage-users')
                             <a href="{{ route('home') }}"style="font-size:25px"><p style="color:#ebebeb"><i class="fas fa-columns"></i></p></a>
-
+                        @endcan
                             <a href="#" style="font-size:25px"><p style="color:#ebebeb"><i class="fas fa-users"></i></p></a>
 
                             <a href="#" style="font-size:25px"><p style="color:#ebebeb;background-color:#171515;padding-top:5px;"><i class="fas fa-tasks"></i></p> </a>
-
-                            <a href="{{ route('logout') }}" style="font-size:25px"><p style="margin-top:200px;color:#ebebeb;"><i class="fas fa-sign-out-alt"></p></i></a>
  
                     </div>
                    
@@ -128,6 +131,7 @@
                             </div>
                             <div class="card-body-chat" onclick="charle(this)" href="#" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}">
                                 <h3 class="title">{{$task->task_title}}</h3>
+                                <p>{{$task->number_of_days_to_due_date}}</p>
                                 <p style="font-weight:400;font-size:15px; width:80%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"> {{$task->task_body}}</p>
                             </div>
                             <div class="card-footer-chat">
@@ -181,7 +185,7 @@
                                                         <div class="form-group row">
                                                             <label for="due_date" class="col-sm-2 col-form-label">Due Date</label>
                                                             <div class="col-sm-10">
-                                                                <input type="date" id="due_date" value="{{$task->due_date}}" name="due_date" class="form-control task @error('task_title') is-invalid @enderror" style="border-radius:0px;" required>
+                                                                <input type="datetime" id="due_date" value="{{$task->due_date}}" name="due_date" class="form-control task @error('task_title') is-invalid @enderror" style="border-radius:0px;" required>
                                                                     @error('task_body')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -251,13 +255,33 @@
            
 
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-1" style="min-height:300px">
                     <button class="btn waves-effect float" data-toggle="modal" data-target="#AddTask">
                         <a href="#" class="" style="padding:40px 10px;font-weight:600;font-size:20px;">
                             <i class="fas fa-plus my-float"></i>
                         </a>
                     </button>
                        
+                </div>
+            </div>
+            <div class="row chatbg">
+                <div class="col-lg-3" style="margin-left:15px;margin-bottom:7px;margin-top:-4.5px">
+                    <a href="{{ route('logout') }}" style="font-size:25px; color:#ebebeb;"><i class="fas fa-sign-out-alt" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();"></i>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    <button class="btn" onclick="Chat()" style="margin-left:30px;margin-top:-1px">
+                        <label class="btn btn-outline-secondary cad btn-block">
+                            <i class="far fa-comments"></i> CHAT 
+                        </label> 
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                </div>
+                <div class="col-lg-2 lock" style="margin-top:6px" id="clock">
+                
                 </div>
             </div>
         </section>
@@ -282,7 +306,7 @@
                                     <div class="form-group row">
                                         <label for="task_title" class="col-sm-2 col-form-label">Task Title</label>
                                         <div class="col-sm-10">
-                                            <input type="text" id="task_title" name="task_title" value="{{old('$task->title')}}" class="form-control task @error('task_title') is-invalid @enderror" style="border-radius:0px;">
+                                            <input type="text" id="task_title" name="task_title" value="{{old('$task->title')}}" class="form-control task @error('task_title') is-invalid @enderror" style="border-radius:0px;" required>
 
                                                 @error('task_title')
                                                     <span class="invalid-feedback" role="alert">
@@ -295,14 +319,14 @@
                                     <div class="form-group row shadow-textarea">
                                         <label for="task_body" class="col-sm-2 col-form-label">Task Details</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control z-depth-1 task" id="task_body" name="task_body" value="{{old('$task->body')}}" placeholder="" rows="7"></textarea>
+                                            <textarea class="form-control z-depth-1 task" id="task_body" name="task_body" value="{{old('$task->body')}}" placeholder="" rows="7" required></textarea>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row">
                                         <label for="due_date" class="col-sm-2 col-form-label">Due Date</label>
                                         <div class="col-sm-10">
-                                            <input type="date" id="due_date" value="{{old('$task->due_date')}}" name="due_date" class="form-control task @error('task_title') is-invalid @enderror" style="border-radius:0px;" required>
+                                            <input type="datetime-local" id="due_date" value="{{old('$task->due_date')}}" name="due_date" class="form-control task @error('task_title') is-invalid @enderror" style="border-radius:0px;" required>
                                                 @error('task_body')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -342,34 +366,41 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <div class="col-lg-4">
-                                <h3 style="font-size:18px;font-weight:700;text-align:right;padding:10px">
-                                Task Description
-                                </h3>
-                                <h3 style="font-size:18px;font-weight:700;text-align:right;padding:10px">
-                                Date Created
-                                </h3>
-                                <h3 style="font-size:18px;font-weight:700;text-align:right;padding:10px">
-                                Due Date
-                                </h3>
-                                <h3 style="font-size:18px;font-weight:700;text-align:right;padding:10px">
-                                Shared with
-                                </h3>
-                                </div>
+                            <table width="100%">
+                                <tr>
+                                    <th>
+                                        Task Description
+                                    </th>
+                                    <td id="taskBody">
 
-                                <div class="col-lg-8">
-                                <p style="font-size:18px;font-weight:400;text-align:left;padding:10px" id="taskBody">
-                                </p>
-                                <p style="font-size:18px;font-weight:400;text-align:left;padding:10px" id="dateCreated">
-                                </p>
-                                <p style="font-size:18px;font-weight:400;text-align:left;padding:10px" id="dueDate">
-                                </p>
-                                <p style="font-size:18px;font-weight:400;text-align:left;padding:10px">
-                                </p>
-                                </div>
-                            
-                            </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Date Created
+                                    </th>
+                                    <td id="dateCreated">
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Due Date
+                                    </th>
+                                    <td id="dueDate">
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Shared With
+                                    </th>
+                                    <td>
+                                        Ama Akosua | John James | Sarah Abraham
+                                    </td>
+                                </tr>
+
+                            </table>
                         </div>
                     </div>
                 </div>  
@@ -394,31 +425,12 @@
                     <tr>
                         <td>
                             <div class="btn-group-toggle" data-toggle="buttons">
+                                @foreach(\App\User::where('id', '!=', Auth::user()->id)->get() as $user)
                                 <label class="btn btn-outline-secondary pad btn-block active">
                                     <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-50 rounded-circle">
-                                    <input type="checkbox" unchecked autocomplete="off">James John
-                                </label>
-                                <label class="btn btn-outline-secondary pad btn-block active">
-                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" alt="" class="img-size-50 rounded-circle">
-                                    <input type="checkbox" unchecked autocomplete="off">Sarah Abraham
-                                  </label>
-                                  <label class="btn btn-outline-secondary pad btn-block active">
-                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" alt="" class="img-size-50 rounded-circle">
-                                    <input type="checkbox" unchecked autocomplete="off">Adom Arakwa
-                                  </label>
-                                  <label class="btn btn-outline-secondary pad btn-block active">
-                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" alt="" class="img-size-50 rounded-circle">
-                                    <input type="checkbox" unchecked autocomplete="off">Free Shs
-                                  </label>
-                                  <label class="btn btn-outline-secondary pad btn-block active">
-                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" alt="" class="img-size-50 rounded-circle">
-                                    <input type="checkbox" unchecked autocomplete="off">Tasker Bruhm
-                                  </label>
-                                  <label class="btn btn-outline-secondary pad btn-block active">
-                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" alt="" class="img-size-50 rounded-circle">
-                                    <input type="checkbox" unchecked autocomplete="off">Fredrick Boakye
-                                  </label>
-                                  
+                                    <input type="checkbox" unchecked autocomplete="off">{{$user->name}}
+                                </label> 
+                                @endforeach 
                             </div>
                         </td>
                     </tr>
@@ -430,17 +442,92 @@
             </div>
         </div>
 
-        <!-- Lockscreen/Logout Modal -->
-        <div id="logout">
+         <!-- Chat Modal -->
+         <div id="Chat">
             <div>
-                
+                <h5 style="font-size:20px;font-weight:700">MESSAGE:
+                    <a class="btn btn-sm float-right" onclick="Chat()" aria-label="Close">
+                        <i class="fas fa-times float-right"></i>
+                    </a>
+                </h5>          
+            </div>
+            <div>
+                <input id="searchbar" class="form-search" type="text" onkeyup="search_users()" placeholder="Search here..." name="search" aria-label="Search">
+            </div>
+            <div class="here">
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                            <div class="btn">
+                                @foreach(\App\User::where('id', '!=', Auth::user()->id)->get() as $user)
+                                <label class="btn btn-outline-secondary pad btn-block">
+                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-32 rounded-circle">
+                                    {{$user->name}}
+                                </label> 
+                                @endforeach 
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
+
+
+      @extends('layouts.chat')
+
+
+                <div class="row">
+                    <div class="col-md-5">
+                        
+                        @if($users->count() > 0)
+                            <h3>Pick a user to chat with</h3>
+                            <ul id="users">
+                                @foreach($users as $user)
+                                    <li><span class="label label-info">{{ $user->name }}</span> <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}" data-user="{{ $user->name }}">Open chat</a></li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <p>No users found! try to add a new user using another browser by going to <a href="{{ url('register') }}">Register page</a></p>
+                        @endif
+                    </div>
+                </div>
+
+                @include('chat-box')
+
+                <input type="hidden" id="current_user" value="{{ \Auth::user()->id }}" />
+                <input type="hidden" id="pusher_app_key" value="{{ env('PUSHER_APP_KEY') }}" />
+                <input type="hidden" id="pusher_cluster" value="{{ env('PUSHER_APP_CLUSTER') }}" />
+
+               
+                <div id="chat-overlay" class="row"></div>
+
+                <audio id="chat-alert-sound" style="display: none">
+                    <source src="{{ asset('sound/facebook_chat.mp3') }}" />
+                </audio>
+
+                @section('script')
+                <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script src="{{ asset('js/chat.js') }}"></script>
+
+                @stop
+
+                    <div id="chat-overlay" class="row"></div>
+
+            <audio id="chat-alert-sound" style="display: none">
+                <source src="{{ asset('sound/facebook_chat.mp3') }}" />
+            </audio>
+
+ 
+  
+
+
+
   </main>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script type="text/javascript">
+  
     
     function removeElement(delAdd) {
     // Removes an element from the document
@@ -466,6 +553,11 @@
   function toggle(){
     var shareTask = document.getElementById('shareTask');
     shareTask.classList.toggle('active');
+  }
+
+  function Chat(){
+    var Chat = document.getElementById('Chat');
+    Chat.classList.toggle('active');
   }
 
     //   function lg(){
@@ -499,7 +591,7 @@
     { 
         let input = document.getElementById('searchtitlebar').value 
         input=input.toLowerCase(); 
-        let x = document.getElementsByClassName('title'); 
+        let x = document.getElementsByClassName('chatbox'); 
         
         for (i = 0; i < x.length; i++) {  
             if (!x[i].innerHTML.toLowerCase().includes(input)) { 
@@ -514,7 +606,31 @@
     { 
         // Call submit() method on <form id='myform'>
         document.getElementById('myform').submit();
-    }  
+    }
+    
+    function currentTime() {
+  var date = new Date(); /* creating object of Date class */
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+  hour = updateTime(hour);
+  min = updateTime(min);
+  sec = updateTime(sec);
+  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec; /* adding time to the div */
+    var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+}
+
+function updateTime(k) {
+  if (k < 10) {
+    return "0" + k;
+  }
+  else {
+    return k;
+  }
+}
+
+currentTime();
+
     
 
   </script>

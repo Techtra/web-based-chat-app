@@ -10,7 +10,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -39,6 +39,68 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+
+
+time {
+  font-size: 11px;
+  font-style: italic;
+}
+
+#login-box {
+  margin-top: 20px
+}
+
+#chat_box {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  width: 27%;
+}
+
+.close-chat {
+  margin-top: -17px;
+  cursor: pointer;
+}
+
+.chat_box {
+  margin-right: 25px;
+  width: 310px;
+}
+
+.chat-area {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+#users li {
+  margin-bottom: 5px;
+}
+
+#chat-overlay {
+  position: fixed;
+  right: 0%;
+  bottom: 0%;
+}
+
+.glyphicon-ok {
+  color: #42b7dd;
+}
+
+.loader {
+  -webkit-animation: spin 1000ms infinite linear;
+  animation: spin 1000ms infinite linear;
+}
+@-webkit-keyframes spin {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+  }
 }
 
 *,
@@ -586,6 +648,26 @@ pre code {
 }
 #shareTask.active{
   left:90%;
+  visibility: visible;
+  opacity:1;
+  transition:0.5s;
+}
+
+#logout{
+  position:absolute;
+  top:90%;
+  left:9%;
+  transform:translate(-50%, -50%);
+  width:200px;
+  padding:20px;
+  box-shadow:0 5px 30px rgba(0,0,0, 0.30);
+  background:#fff;
+  visibility: hidden;
+  opacity:0;
+  transition:0.5s;
+}
+#logout.active{
+  left:11%;
   visibility: visible;
   opacity:1;
   transition:0.5s;
@@ -19238,7 +19320,7 @@ div #userbox{
 
 .bgrad{
   background: rgb(67,206,162);
-background: linear-gradient(90deg, rgba(67,206,162,1) 0%, rgba(24,90,157,1) 100%);;
+background: linear-gradient(90deg, rgba(67,206,162,1) 0%, rgba(24,90,157,1) 100%);
 }
 
 .float{
@@ -19268,13 +19350,69 @@ background: linear-gradient(90deg, rgba(67,206,162,1) 0%, rgba(24,90,157,1) 100%
 }
 
 .pad{
-  padding:0 !important;
+  padding:.23rem 0.5rem !important;
   border:0px;
   text-align:left;
 }
 
+.chatbg{
+  background: rgb(83,83,83);
+  background: linear-gradient(90deg, rgba(83,83,83,1) 0%, rgba(15,15,15,1) 100%);
+  max-height:40px;
+}
+
+.lock{
+  color:#7b7979;
+  text-align:right;
+  font-weight:700;
+}
+
+.lock:hover{
+  color:#f5f5f5;
+  text-align:right;
+  font-weight:700;
+}
+
+#Chat{
+  position:absolute;
+  left:15%;
+  bottom:-20%;
+  transform:translate(-50%, -50%);
+  width:250px;
+  padding:10px;
+  box-shadow:0 2px 10px rgba(0,0,0, 0.30);
+  background:#fff;
+  visibility: hidden;
+  opacity:0;
+  transition:0.5s;
+}
+#Chat.active{
+  bottom:-10%;
+  visibility: visible;
+  opacity:1;
+  transition:0.5s;
+}
+
 .chatbox:hover{
-background-color:rgb(226, 222, 222);
+background-color:rgb(240, 239, 239);
+border-radius:2px;
+cursor: pointer;
+}
+.chatbox:active{
+  background-color:rgb(218, 212, 212);
+}
+
+.lgg{
+color:black;
+}
+.lgg:hover{
+  background-color:rgb(240, 239, 239);
+  color:black;
+  padding:5px 20px 5px 10px;
+}
+.lgg:active{
+  background-color:rgb(218, 212, 212);
+  color:black;
 }
 
 .modal.right.fade.in .modal-dialog {
@@ -19286,9 +19424,16 @@ background-color:rgb(226, 222, 222);
   box-shadow : 0 0 0px rgba(0,0,0,.125), 2px 2px 8px rgba(0,0,0,.2);
 }
 
+#Add_task{
+  text-align:center;
+  color: #ebebeb;
+  font-size:100px;
+  margin-top:250px;
+ }
+
 .scroll{
   max-height: 500px;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-top:3px;
 }
 
@@ -19849,7 +19994,7 @@ div #chatUI{
 
 .direct-chat-text {
   border-radius: 0.3rem;
-  background: #d2d6de;
+  background: rgb(67,206,162);
   border: 1px solid #d2d6de;
   color: #444;
   margin: 5px 0 0 50px;
@@ -19881,7 +20026,8 @@ div #chatUI{
 
 .right .direct-chat-text {
   margin-left: 0;
-  margin-right: 50px;
+  margin-right: 0px;
+  background: rgb(24,90,157,1) !important;
 }
 
 .right .direct-chat-text::after, .right .direct-chat-text::before {

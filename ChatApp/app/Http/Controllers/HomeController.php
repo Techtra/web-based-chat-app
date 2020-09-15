@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Gate;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         // return view('home');
+
+    if(Gate::denies('manage-users')){
+        return redirect(route('task.index'));
+    }
+    
     return view('admin.dashboard');
 
     }

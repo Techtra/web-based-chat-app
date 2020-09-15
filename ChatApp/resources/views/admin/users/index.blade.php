@@ -27,6 +27,12 @@
 
       <!-- Default box -->
       <div class="card card-solid">
+      <div class="row">
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2">
+          <input id="searchbar" style="margin:7px 20px 7px 0px" class="float-right" type="text" onkeyup="Search_users()" placeholder="  Search..." name="search" aria-label="Search">
+        </div>
+      </div>
         <div class="card-body pb-0">
           <div class="row d-flex align-items-stretch" >
           @foreach($users as $user)
@@ -61,7 +67,7 @@
                 </div>
                 <div class="card-footer">
                   <div class="text-right">
-                  @can('manage-users')
+                  @can('view-users')
                     <a onclick="toggle(this)" class="btn btn-sm" data-toggle="modal" data-target="#user-modal" data-userName="{{$user->name}}" data-userEmail= "{{$user->email}}" data-userPermissions="{{ implode(' | ', $user->roles()->get()->pluck('name')->toArray())}}" data-userCreated_at="{{$user->created_at}}" data-userUpdated_at="{{$user->updated_at}}" data-userPhone="{{$user -> phone}}">
                       <i class="fas fa-search-plus"></i>
                     </a>
@@ -266,7 +272,7 @@
                         </a>
                       </div>
                     </div>
-                </div>
+                  </div>
 
 
     </div>
@@ -313,7 +319,21 @@
     // var popup = document.getElementByClassName('popup')
     // popup.classList.toggle('active')
   }
-
+  function Search_users() 
+    { 
+        let input = document.getElementById('searchbar').value 
+        input=input.toLowerCase(); 
+        let x = document.getElementsByClassName('small-box'); 
+        
+        for (i = 0; i < x.length; i++) {  
+            if (!x[i].innerHTML.toLowerCase().includes(input)) { 
+                x[i].style.display="none"; 
+            } 
+            else { 
+                x[i].style.display="";                  
+            } 
+        } 
+    } 
 
   function del(){
     // var blur = document.getElementById('blur');

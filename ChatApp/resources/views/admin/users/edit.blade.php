@@ -85,7 +85,7 @@
                           <select name="type_id" class ="form-control" id="userType" style = "border-radius:0px;">
                            
                             @foreach(\App\UserType::all() as $type)
-                              <option value="{{$type->id}}">{{$type->name}}</option>
+                          <option value="{{$type->id}}" {{$user->type_id == $type->id ? 'selected' : ''}}>{{$type->name}}</option>
                             @endforeach
                             
                           </select>

@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function __contruct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -23,7 +23,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+
+        $users = User::orderBy('name', 'ASC')->get();
         return view ('admin.users.index')->with('users', $users);
     }
 
@@ -58,7 +59,7 @@ class UsersController extends Controller
     {
         $validator=Validator::make($request->all(), [
             'name' => 'required|unique:users|min:5',
-            'email' =>'required|email'|'required',
+            'email' =>'required|email',
             'password' => 'required|confirmed|min:8',
             'type_id' => 'required',
             'phone' => 'required|digits:10',
@@ -77,6 +78,7 @@ class UsersController extends Controller
             'password' => Hash::make($request['password']),
             'type_id' => $request['type_id'],
             'phone' => $request['phone'],
+            'status_id' => '1',
             
         ]);
             
@@ -96,6 +98,20 @@ class UsersController extends Controller
         
        return redirect(route('users.index'));
     }
+
+    public function updateStatus(Request $request, $user_id)
+    {
+
+        $user = User::find($user_id);
+            // return $request;
+
+       $data = $request->all();
+
+       $user->update(['status_id'=>$data['status']]);
+
+       return redirect(route('task.index'));
+
+   }
 
     /**
      * Display the specified resource.
@@ -162,6 +178,7 @@ class UsersController extends Controller
             return redirect(route('users.index'));
         }
 
+        $user->type()-detach();
         $user->roles()->detach();
         $user->delete();
 

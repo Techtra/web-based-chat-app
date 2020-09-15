@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Montserrat font -->
   <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> -->
-  <!-- <Raleway font> -->
+  <!-- <poppins font> -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
 
@@ -53,18 +53,6 @@
       </li> -->
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto" style="margin-right:80px">
       <!-- Messages Dropdown Menu -->
@@ -76,6 +64,9 @@
           <p style="font-size:15px; margin-bottom:0rem; font-weight:600">{{Auth::user()->name}}</p>
         </div>
       </div>
+      <a href="{{ route('task.index') }}" class="nav-link active">
+        <i class="fas fa-tasks"></i>
+      </a>
         <a class="nav-link" data-toggle="dropdown" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >
         <!-- {{ __('Logout') }} -->
           <i class="fas fa-power-off"></i>
