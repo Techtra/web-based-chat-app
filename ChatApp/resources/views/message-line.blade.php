@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-10 col-xs-10  mr-0 ml-0">
             <div class="direct-chat-text text-left ml-1" style="color:black">
-                <p>{!! $message->content !!}</p>
+                <p style="margin-bottom:4px">{!! $message->content !!}</p>
                 <time datetime="{{ date("Y-m-dTH:i", strtotime($message->created_at->toDateTimeString())) }}">{{ $message->fromUser->name }} • {{ $message->created_at->diffForHumans() }}</time>
             </div>
         </div>

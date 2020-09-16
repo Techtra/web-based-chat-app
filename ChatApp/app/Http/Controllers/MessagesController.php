@@ -104,12 +104,12 @@ class MessagesController extends Controller
         $lastMessages = Message::where(function($query) use ($request, $message) {
             $query->where('from_user', Auth::user()->id)
                 ->where('to_user', $request->to_user)
-                ->where('created_at', '<', $message->created_at);
+                ->where('created_at', '>', $message->created_at);
         })
             ->orWhere(function ($query) use ($request, $message) {
             $query->where('from_user', $request->to_user)
                 ->where('to_user', Auth::user()->id)
-                ->where('created_at', '<', $message->created_at);
+                ->where('created_at', '>', $message->created_at);
         })
             ->orderBy('created_at', 'ASC')->limit(100)->get();
 

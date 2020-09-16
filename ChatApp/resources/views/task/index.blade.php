@@ -65,6 +65,8 @@
                     </div>
                     <div class="col-md-3" id="userIcons">
                         <a href="javascript:history.go(0)"  style="color:black"><i class="fas fa-sync-alt"></i></a>
+                        
+                      
                         <span>
                             <a href="#"  class="float-right" style="color:black"><i id="icon" class="fas fa-eye"></i></a>
                         </span>
@@ -129,21 +131,37 @@
                                 <!-- <a href="#" class="float-right" data-toggle="modal" data-target="#shareTask"><p><i class="fas fa-share"></i>  Share task</p></a> -->
                                 <a href="#" onclick="toggle()" class="float-right" data-dismiss="modal"><p><i class="fas fa-share"></i>  Share task</p></a>
                             </div>
-                            <div class="card-body-chat" onclick="charle(this)" href="#" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}">
-                                <h3 class="title">{{$task->task_title}}</h3>
-                                <p>{{$task->number_of_days_to_due_date}}</p>
-                                <p style="font-weight:400;font-size:15px; width:80%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"> {{$task->task_body}}</p>
-                            </div>
-                            <div class="card-footer-chat">
-                            <div style="column-width:50%">
-                                <p>
-                                    {{\Carbon\Carbon::createFromTimeStamp(strtotime($task->due_date))->diffForHumans()}}
-                                    <a href="#" class="text-danger float-right" data-toggle="modal" data-target="#delete-modal-{{$task->id}}" style="margin-left:10px;color:white"><i class="fas fa-trash"></i></a> 
-                                    <a href="#" class="text-success float-right" data-toggle="modal" data-target="#editTask-{{$task->id}}" style="margin-left:10px"><i class="fas fa-edit"></i></a>
-                                    <a onclick="charle(this)" class="float-right text-info" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}"><i class="fas fa-search-plus"></i></a>
-                                </p>
-                            </div>
-                            </div>
+                                <div class="card-body-chat" onclick="charle(this)" href="#" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}">
+                                    
+                                    <h3  class="title">{{$task->task_title}}</h3>
+
+                                    <p style="font-weight:400;font-size:15px; width:80%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"> {{$task->task_body}}</p>
+                                </div>
+                                <div class="card-footer-chat">
+                                    <div style="column-width:50%">
+                                    
+                                        <div class="row mb-2">
+                                                <div class="col-md-3">
+                                                    <b>{{\Carbon\Carbon::createFromTimeStamp(strtotime($task->due_date))->diffForHumans()}}</b>
+                                                </div>
+                                            <div class="col-md-6">
+                                                    <div class="progress progress-xs" style="margin-top: 9px">
+                                                        <div class="progress-bar {{$task->progress_bar_color}} progress-bar-striped" role="progressbar"
+                                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{$task->time_percentage}}%">
+                                                        
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                    
+                                                    <a href="#" class="text-danger float-right" data-toggle="modal" data-target="#delete-modal-{{$task->id}}" style="margin-left:10px;color:white"><i class="fas fa-trash"></i></a> 
+                                                    <a href="#" class="text-success float-right" data-toggle="modal" data-target="#editTask-{{$task->id}}" style="margin-left:10px"><i class="fas fa-edit"></i></a>
+                                                    <a onclick="charle(this)" class="float-right text-info" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}"><i class="fas fa-search-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                         
                             <!-- Edit Task Modal -->
                             <div class="modal fade" id="editTask-{{$task->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" >
@@ -265,7 +283,7 @@
                 </div>
             </div>
             <div class="row chatbg">
-                <div class="col-lg-3" style="margin-left:15px;margin-bottom:7px;margin-top:-4.5px">
+                <div class="col-lg-3" style="margin-left:15px;margin-bottom:7px;margin-top:-2.5px">
                     <a href="{{ route('logout') }}" style="font-size:25px; color:#ebebeb;"><i class="fas fa-sign-out-alt" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"></i>
                     </a>
@@ -427,7 +445,7 @@
                             <div class="btn-group-toggle" data-toggle="buttons">
                                 @foreach(\App\User::where('id', '!=', Auth::user()->id)->get() as $user)
                                 <label class="btn btn-outline-secondary pad btn-block active">
-                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-50 rounded-circle">
+                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-32 rounded-circle">
                                     <input type="checkbox" unchecked autocomplete="off">{{$user->name}}
                                 </label> 
                                 @endforeach 
@@ -459,11 +477,12 @@
                     <tr>
                         <td>
                             <div class="btn">
-                                @foreach(\App\User::where('id', '!=', Auth::user()->id)->get() as $user)
-                                <label class="btn btn-outline-secondary pad btn-block">
-                                    <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-32 rounded-circle">
-                                    {{$user->name}}
-                                </label> 
+                                @foreach($users as $user)
+                                    <label class="btn btn-outline-secondary pad btn-block">
+                                        <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}" data-user="{{ $user->name }}"> <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-32 rounded-circle">
+                                            {{$user->name}}
+                                        </a>
+                                    </label> 
                                 @endforeach 
                             </div>
                         </td>
@@ -476,22 +495,7 @@
       @extends('layouts.chat')
 
 
-                <div class="row">
-                    <div class="col-md-5">
-                        
-                        @if($users->count() > 0)
-                            <h3>Pick a user to chat with</h3>
-                            <ul id="users">
-                                @foreach($users as $user)
-                                    <li><span class="label label-info">{{ $user->name }}</span> <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}" data-user="{{ $user->name }}">Open chat</a></li>
-                                @endforeach
-                            </ul>
-                        @else
-                            <p>No users found! try to add a new user using another browser by going to <a href="{{ url('register') }}">Register page</a></p>
-                        @endif
-                    </div>
-                </div>
-
+                
                 @include('chat-box')
 
                 <input type="hidden" id="current_user" value="{{ \Auth::user()->id }}" />
@@ -507,7 +511,7 @@
 
                 @section('script')
                 <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-  <script src="{{ asset('js/chat.js') }}"></script>
+                <script src="{{ asset('js/chat.js') }}"></script>
 
                 @stop
 

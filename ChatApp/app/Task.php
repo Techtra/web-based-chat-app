@@ -16,11 +16,37 @@ class Task extends Model
     }
 
     public function getNumberOfDaysToDueDateAttribute(){
-        if($this->due_date){
             $ret = ceil((strtotime($this->due_date) - strtotime('now'))/(60));
-
-            if($ret == 0)
-                return $ret;
-        }
+                if($ret >= 0){
+                    return $ret;
+                }
+                return 0;
     }
+
+    public function getTotalTimeAttribute(){
+        $total = ceil((strtotime($this->due_date) - strtotime($this->created_at))/(60));
+            if($total >=0){
+                return $total;
+            }
+            return 1;
+    }
+
+    public function getTimePercentageAttribute(){
+        $percentage = 100 - ceil((($this->number_of_days_to_due_date)/($this->total_time))*100);
+            return $percentage;
+    }
+
+    public function getProgressBarColorAttribute(){
+        
+        if($this->time_percentage <=20){
+            return 'bg-green';
+        }
+    
+        if($this->time_percentage <=50){
+            return 'bg-yellow';
+        }
+
+        return 'bg-red';
+    }
+
 }
