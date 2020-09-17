@@ -145,7 +145,7 @@
                                             <div class="col-md-6">
                                                     <div class="progress progress-xs" style="margin-top: 9px">
                                                         <div class="progress-bar {{$task->progress_bar_color}} progress-bar-striped" role="progressbar"
-                                                          id="aria"  aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: %" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateUpdated="{{$task->updated_at}}" data-dueDate="{{$task->due_date}}">
+                                                          id="aria"  aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: {{$task->time_percentage}}%" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateUpdated="{{$task->updated_at}}" data-dueDate="{{$task->due_date}}">
                                                         
                                                         </div>
                                                     </div>
@@ -578,37 +578,54 @@
          var dueDate = value.getAttribute('data-dueDate');
          dueDate = convertToUnixTimeStamp(dueDate);
 
-         var dateupdated = value.getAttribute('data-dateupdated');
+         var dateupdated = value.getAttribute('data-dateUpdated');
          dateupdated = convertToUnixTimeStamp(dateupdated);
 
          var now = new Date();
          now = convertToUnixTimeStamp(now);
 
          console.log("Due date: ", dueDate);
-         console.log("Last updated: ",dateupdated);
-         console.log("Current Time: ",now);
+         console.log("Last updated: ", dateupdated);
+         console.log("Current Time: ", now);
 
-         var timeleft = dueDate - now;
-         var timeTotal = dueDate - dateupdated;
+         var timeLeft = dueDate - now;
 
-         if (timeleft<0){
-             timeleft = 0;
-         }
-         var timePercent = (100-((timeleft/timeTotal)*100));
-         console.log('timeleft:', timeleft.toFixed(0) );
+            if(timeLeft < 0){
+                timeLeft = 0;
+            }
+           
+
+
+         var timeTotal = dueDate - dateupdated ;
+         console.log("Total Time", timeTotal);  
+
+
+         var timePercent = (100-((timeLeft/timeTotal)*100));
+         console.log('timeLeft:', timeLeft.toFixed(0) );
          console.log('timePercent:', timePercent.toFixed(0));
 
          var fixedPercentage = timePercent.toFixed(0);
 
+         value.setAttribute('style', 'width: '+fixedPercentage+'%');
 
-        //  var ariaValue = value.setAttribute('aria-valuenow', fixedPercentage);
-        //  console.log(ariaValue);
-        var ariaValue = value.setAttribute('aria-valuenow', fixedPercentage);
-         console.log('ariaValue:', ariaValue);
+         value.setAttribute('aria-valuenow', fixedPercentage);
+         
+         if(fixedPercentage <= 20){
+            value.setAttribute('class' , 'progress-bar bg-green progress-bar-striped');
+         }
+         else if(fixedPercentage >= 20 && fixedPercentage <= 70 ){
+             value.setAttribute('class' , 'progress-bar bg-yellow progress-bar-striped');
+         }
+         else {
+             value.setAttribute('class' , 'progress-bar bg-red progress-bar-striped');
+         }
+         
+
+        
          
         
     });
-     }, 3000);
+     }, 500);
 
     function dateCalc(){
     // var dateCreated = element.getAttribute("data-dateCreated");
