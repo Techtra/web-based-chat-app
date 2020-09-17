@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
    <!-- Montserrat font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{asset('dashboard/dist/css/adminlte.css')}}">
   <link rel="stylesheet" href="{{asset('dashboard/plugins/fontawesome-free/css/all.min.css')}}">
@@ -64,9 +64,7 @@
                         </form>
                     </div>
                     <div class="col-md-3" id="userIcons">
-                        <a href="javascript:history.go(0)"  style="color:black"><i class="fas fa-sync-alt"></i></a>
-                        
-                      
+                        <a href="javascript:history.go(0)"  style="color:black"><i class="fas fa-sync-alt"></i></a>                      
                         <span>
                             <a href="#"  class="float-right" style="color:black"><i id="icon" class="fas fa-eye"></i></a>
                         </span>
@@ -75,8 +73,8 @@
                 </div>
             </div>
             <div class="col-md-8 pt-4" id="userbox">
-                <h4 style="font-weight:700;font-size:22px; margin-left:80px; margin-top:10px;font-family: montserrat;">
-                    <i class="fas fa-tasks"></i> 
+                <h4 style="font-weight:800;font-size:28px; margin-left:80px; margin-top:10px;font-family: montserrat;">
+                <i class="far fa-calendar-check"></i>
                     <span style="margin-left:20px">
                         TASK SCHEDULER 
                     </span>
@@ -131,7 +129,7 @@
                                 <!-- <a href="#" class="float-right" data-toggle="modal" data-target="#shareTask"><p><i class="fas fa-share"></i>  Share task</p></a> -->
                                 <a href="#" onclick="toggle()" class="float-right" data-dismiss="modal"><p><i class="fas fa-share"></i>  Share task</p></a>
                             </div>
-                                <div class="card-body-chat" onclick="charle(this)" href="#" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}">
+                                <div class="card-body-chat" onclick="viewTask(this)" href="#" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}">
                                     
                                     <h3  class="title">{{$task->task_title}}</h3>
 
@@ -147,7 +145,7 @@
                                             <div class="col-md-6">
                                                     <div class="progress progress-xs" style="margin-top: 9px">
                                                         <div class="progress-bar {{$task->progress_bar_color}} progress-bar-striped" role="progressbar"
-                                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{$task->time_percentage}}%">
+                                                          id="aria"  aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: %" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateUpdated="{{$task->updated_at}}" data-dueDate="{{$task->due_date}}">
                                                         
                                                         </div>
                                                     </div>
@@ -156,7 +154,7 @@
                                                     
                                                     <a href="#" class="text-danger float-right" data-toggle="modal" data-target="#delete-modal-{{$task->id}}" style="margin-left:10px;color:white"><i class="fas fa-trash"></i></a> 
                                                     <a href="#" class="text-success float-right" data-toggle="modal" data-target="#editTask-{{$task->id}}" style="margin-left:10px"><i class="fas fa-edit"></i></a>
-                                                    <a onclick="charle(this)" class="float-right text-info" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}"><i class="fas fa-search-plus"></i></a>
+                                                    <a onclick="viewTask(this)" class="float-right text-info" data-toggle="modal" data-target="#view-task" data-taskTitle="{{$task->task_title}}" data-taskBody="{{$task->task_body}}" data-dateCreated="{{$task->created_at}}" data-dueDate="{{$task->due_date}}"><i class="fas fa-search-plus"></i></a>
                                             </div>
                                         </div>
                                         
@@ -271,7 +269,6 @@
 
                 @endif
            
-
                 </div>
                 <div class="col-md-1" style="min-height:300px">
                     <button class="btn waves-effect float" data-toggle="modal" data-target="#AddTask">
@@ -425,7 +422,6 @@
             </div>
         </div>
 
-
         <!-- Share Task Modal -->
         <div id="shareTask">
             <div>
@@ -478,11 +474,12 @@
                         <td>
                             <div class="btn">
                                 @foreach($users as $user)
-                                    <label class="btn btn-outline-secondary pad btn-block">
-                                        <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}" data-user="{{ $user->name }}"> <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-32 rounded-circle">
-                                            {{$user->name}}
-                                        </a>
-                                    </label> 
+                                    <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}" data-user="{{ $user->name }}">
+                                        <label class="btn btn-outline-secondary pad btn-block">
+                                            <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-32 rounded-circle">
+                                                {{$user->name}}
+                                        </label> 
+                                    </a>
                                 @endforeach 
                             </div>
                         </td>
@@ -496,37 +493,35 @@
 
 
                 
-                @include('chat-box')
+            @include('chat-box')
 
-                <input type="hidden" id="current_user" value="{{ \Auth::user()->id }}" />
-                <input type="hidden" id="pusher_app_key" value="{{ env('PUSHER_APP_KEY') }}" />
-                <input type="hidden" id="pusher_cluster" value="{{ env('PUSHER_APP_CLUSTER') }}" />
+            <input type="hidden" id="current_user" value="{{ \Auth::user()->id }}" />
+            <input type="hidden" id="pusher_app_key" value="{{ env('PUSHER_APP_KEY') }}" />
+            <input type="hidden" id="pusher_cluster" value="{{ env('PUSHER_APP_CLUSTER') }}" />
 
-               
-                <div id="chat-overlay" class="row"></div>
-
-                <audio id="chat-alert-sound" style="display: none">
-                    <source src="{{ asset('sound/facebook_chat.mp3') }}" />
-                </audio>
-
-                @section('script')
-                <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-                <script src="{{ asset('js/chat.js') }}"></script>
-
-                @stop
-
-                    <div id="chat-overlay" class="row"></div>
+            
+            <div id="chat-overlay" class="row"></div>
 
             <audio id="chat-alert-sound" style="display: none">
                 <source src="{{ asset('sound/facebook_chat.mp3') }}" />
             </audio>
 
- 
-  
+            @section('script')
+            <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+            <script src="{{ asset('js/chat.js') }}"></script>
 
+            @stop
 
+                <div id="chat-overlay" class="row"></div>
+
+        <audio id="chat-alert-sound" style="display: none">
+            <source src="{{ asset('sound/facebook_chat.mp3') }}" />
+        </audio>
+    </div>
 
   </main>
+
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -539,7 +534,8 @@
     element.parentNode.removeChild(element);
     }
 
-    function charle(element)
+    // Fetch data from frontend to display in modal function
+    function viewTask(element)
     {
         var taskBody = element.getAttribute("data-taskBody");
         document.getElementById("taskBody").innerHTML = taskBody;
@@ -554,21 +550,78 @@
         document.getElementById("dueDate").innerHTML = dueDate;
     }
 
-  function toggle(){
+  function toggle()
+  {
     var shareTask = document.getElementById('shareTask');
     shareTask.classList.toggle('active');
   }
 
-  function Chat(){
+  function Chat()
+  {
     var Chat = document.getElementById('Chat');
     Chat.classList.toggle('active');
   }
 
-    //   function lg(){
-    //     var logout = document.getElementById('logout');
-    //     logout.classList.toggle('active');
-    //   }
+  function convertToUnixTimeStamp(timestamp) {
+    var unixtime =new Date(`${timestamp}`).getTime()/1000;
+    return unixtime;
+  }
 
+  setInterval(function(){
+    var progressbar = $(".progress-bar");
+    var element;
+
+     $.each( progressbar, function( key, value ) {
+
+        //  console.log(value);
+         
+         var dueDate = value.getAttribute('data-dueDate');
+         dueDate = convertToUnixTimeStamp(dueDate);
+
+         var dateupdated = value.getAttribute('data-dateupdated');
+         dateupdated = convertToUnixTimeStamp(dateupdated);
+
+         var now = new Date();
+         now = convertToUnixTimeStamp(now);
+
+         console.log("Due date: ", dueDate);
+         console.log("Last updated: ",dateupdated);
+         console.log("Current Time: ",now);
+
+         var timeleft = dueDate - now;
+         var timeTotal = dueDate - dateupdated;
+
+         if (timeleft<0){
+             timeleft = 0;
+         }
+         var timePercent = (100-((timeleft/timeTotal)*100));
+         console.log('timeleft:', timeleft.toFixed(0) );
+         console.log('timePercent:', timePercent.toFixed(0));
+
+         var fixedPercentage = timePercent.toFixed(0);
+
+
+        //  var ariaValue = value.setAttribute('aria-valuenow', fixedPercentage);
+        //  console.log(ariaValue);
+        var ariaValue = value.setAttribute('aria-valuenow', fixedPercentage);
+         console.log('ariaValue:', ariaValue);
+         
+        
+    });
+     }, 3000);
+
+    function dateCalc(){
+    // var dateCreated = element.getAttribute("data-dateCreated");
+
+    // var dueDate =  element.getAttribute("data-dueDate");
+
+    // var timeTotal = (dueDate.getTime() - dateCreated.getTime()) / 1000;
+    // var progressbar = $(".progress-bar");
+    //  console.log("Selected progressbar Class: ", progressbar );
+    // setInterval(500);
+  }
+
+//   eye toggle function
   $(function() 
   {
     $("span").click(function() {
@@ -578,7 +631,7 @@
 
   function search_users() 
     { 
-        let input = document.getElementById('searchbar').value 
+        let input = document.getElementByClassName('searchbar').value 
         input=input.toLowerCase(); 
         let x = document.getElementsByClassName('pad'); 
         
@@ -611,20 +664,24 @@
         // Call submit() method on <form id='myform'>
         document.getElementById('myform').submit();
     }
-    
-    function currentTime() {
-  var date = new Date(); /* creating object of Date class */
-  var hour = date.getHours();
-  var min = date.getMinutes();
-  var sec = date.getSeconds();
-  hour = updateTime(hour);
-  min = updateTime(min);
-  sec = updateTime(sec);
-  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec; /* adding time to the div */
-    var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
-}
 
-function updateTime(k) {
+
+    // Time Update function
+  function currentTime() 
+  {
+    var date = new Date(); /* creating object of Date class */
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var sec = date.getSeconds();
+    hour = updateTime(hour);
+    min = updateTime(min);
+    sec = updateTime(sec);
+    document.getElementById("clock").innerText = hour + " : " + min + " : " + sec; /* adding time to the div */
+        var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+  }
+
+function updateTime(k)
+{
   if (k < 10) {
     return "0" + k;
   }
@@ -632,7 +689,6 @@ function updateTime(k) {
     return k;
   }
 }
-
 currentTime();
 
     
