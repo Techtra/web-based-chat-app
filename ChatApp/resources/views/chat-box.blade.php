@@ -11,9 +11,10 @@
                     </div>
                     <div class="card-footer">
                         <div class="input-group form-controls">
-                            <textarea class="form-control input-sm chat_input" rows="1" placeholder="Write your message here..."></textarea>
+                            <textarea class="form-control input-sm chat_input" rows="1" placeholder="Write 
+                             here..."></textarea>
                             <span class="input-group-btn">
-                                    <button class="btn btn-primary btn-sm btn-chat" style="padding:10px" type="button" data-to-user=""  disabled
+                                    <button class="btn btn-primary btn-sm btn-chat" style="padding:10px" type="button" data-to-user=""  disabled>
                                          <i class="fas fa-paper-plane"></i>
                                         Send</button>
                                 </span>
