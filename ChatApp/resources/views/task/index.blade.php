@@ -140,7 +140,9 @@
                                     
                                         <div class="row mb-2">
                                                 <div class="col-md-3">
-                                                    <b>{{\Carbon\Carbon::createFromTimeStamp(strtotime($task->due_date))->diffForHumans()}}</b>
+                                                    <div class ="countdown"></div>
+                                                    <!-- <b>{{\Carbon\Carbon::createFromTimeStamp(strtotime($task->due_date))->diffForHumans()}}</b> -->
+                                                    <!-- <p><time class="timeago" datetime="{{$task->due_date}}"></time></p> -->
                                                 </div>
                                             <div class="col-md-6">
                                                     <div class="progress progress-xs" style="margin-top: 9px">
@@ -529,8 +531,10 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="{{asset('js/moment.js')}}"></script>
+  <!-- <script src="{{asset('dashboard/js.jquery.timeago.js')}}"></script>
+  <script src="{{asset('dashboard/js.global.js')}}"></script> -->
   <script type="text/javascript">
-  
     
     function removeElement(delAdd) {
     // Removes an element from the document
@@ -622,26 +626,34 @@
          }
          else {
              value.setAttribute('class' , 'progress-bar bg-red progress-bar-striped');
-         }
-         
-
-        
-         
+         }    
         
     });
      }, 500);
 
-    function dateCalc(){
-    // var dateCreated = element.getAttribute("data-dateCreated");
 
-    // var dueDate =  element.getAttribute("data-dueDate");
+    $(function()
+    {
 
-    // var timeTotal = (dueDate.getTime() - dateCreated.getTime()) / 1000;
-    // var progressbar = $(".progress-bar");
-    //  console.log("Selected progressbar Class: ", progressbar );
-    // setInterval(500);
-  }
+         var dueDate = value.getAttribute('data-dueDate');
+         dueDate = convertToUnixTimeStamp(dueDate);
 
+         var now = new Date();
+         now = convertToUnixTimeStamp(now);
+
+
+        var time = dueDate - now;
+        // var duration = moment.duration(time*1000, 'milliseconds');
+        // var interval = 1000;
+        console.log("Time :",time);
+
+        setInterval(function(){
+        duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
+        $('countdown').text(moment(duration.asMilliseconds()).format('H[h]:mm[m]:ss[s]'));
+        }, interval);
+    });
+
+     
 //   eye toggle function
   $(function() 
   {
