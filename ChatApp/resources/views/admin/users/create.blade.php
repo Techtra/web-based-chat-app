@@ -132,7 +132,7 @@
                       @foreach($roles as  $key => $role)
                       <ul style="padding-left:0px;">
                         <div class="custom-control custom-switch form-check" style="font-size:13px;">
-                        <input type="checkbox" class="custom-control-input" id="customSwitch{{1+$key}}" type="checkbox" name = "roles[]" value="{{ $role->id}}"
+                        <input type="checkbox" class="custom-control-input" id="customSwitch{{1+$key}}" type="checkbox" name = "roles[]" value="{{$role->id}}"
                           @if($user->roles->pluck('id')->contains($role->id)) checked @endif>
                           <label class="custom-control-label" for="customSwitch{{1+$key}}" style="font-weight:600;">{{$role->name}}</label>
                         </div>

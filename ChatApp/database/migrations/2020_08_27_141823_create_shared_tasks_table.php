@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTaskOwnersTable extends Migration
+class CreateSharedTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTaskOwnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_owners', function (Blueprint $table) {
+        Schema::create('shared_tasks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('task_id')->index();
-            $table->integer('owner_id')->index();
+            $table->integer('shared_by_id')->index();
+            $table->integer('shared_with_id')->index();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateTaskOwnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_owners');
+        Schema::dropIfExists('shared_tasks');
     }
 }

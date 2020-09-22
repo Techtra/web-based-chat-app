@@ -435,6 +435,8 @@
                 <input id="searchbar" class="form-search" type="text" onkeyup="search_users()" placeholder="Search here..." name="search" aria-label="Search">
             </div>
             <div class="share">
+            <form action="" method="POST">
+                @csrf
                 <table style="width:100%">
                     <tr>
                         <td>
@@ -442,18 +444,20 @@
                                 @foreach(\App\User::where('id', '!=', Auth::user()->id)->get() as $user)
                                 <label class="btn btn-outline-secondary pad btn-block active">
                                     <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-32 rounded-circle">
-                                    <input type="checkbox" unchecked autocomplete="off">{{$user->name}}
+                                    <input type="checkbox" unchecked autocomplete="off" name="users[]" value="{{$user->id}}">{{$user->name}}
                                 </label> 
                                 @endforeach 
                             </div>
                         </td>
                     </tr>
                 </table>
-            </div>
-            <div class="mt-2">
-                <button type="cancel" onclick="toggle()" class="btn btn-sm btn-danger ml-2" style="border-radius:3px;">Cancel</button>
-                <button type="submit" onclick="toggle()" class="btn btn-sm btn-info float-right" style="border-radius:3px;">Share</button>              
-            </div>
+                </div>
+                <div class="mt-2">
+                    <button type="cancel" onclick="toggle()" class="btn btn-sm btn-danger ml-2" style="border-radius:3px;">Cancel</button>
+                    <button type="submit" onclick="toggle()" class="btn btn-sm btn-info float-right" style="border-radius:3px;">Share</button>              
+                </div>
+            </form>
+            
         </div>
 
          <!-- Chat Modal -->
