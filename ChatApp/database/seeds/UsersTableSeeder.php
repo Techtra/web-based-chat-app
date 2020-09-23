@@ -55,7 +55,7 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        $admin->roles()->attach($create_userRole);
+        $admin->roles()->attach($edit_userRole);
         $executive->roles()->attach($edit_userRole);
         $manager->roles()->attach($delete_userRole);
         $employee->roles()->attach($view_userRole);
