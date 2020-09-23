@@ -140,8 +140,8 @@
                                     
                                         <div class="row mb-2">
                                                 <div class="col-md-3">
-                                                    <div class ="countdown"></div>
-                                                    <!-- <b>{{\Carbon\Carbon::createFromTimeStamp(strtotime($task->due_date))->diffForHumans()}}</b> -->
+                                                    <!-- <div class ="countdown"></div> -->
+                                                    <b>{{\Carbon\Carbon::createFromTimeStamp(strtotime($task->due_date))->diffForHumans()}}</b>
                                                     <!-- <p><time class="timeago" datetime="{{$task->due_date}}"></time></p> -->
                                                 </div>
                                             <div class="col-md-6">
@@ -437,7 +437,8 @@
                 <input id="searchbar" class="form-search" type="text" onkeyup="search_users()" placeholder="Search here..." name="search" aria-label="Search">
             </div>
             <div class="share">
-            <form action="" method="POST">
+
+            <form action="{{ route('sharetask.store') }}" method="POST">
                 @csrf
                 <table style="width:100%">
                     <tr>
@@ -446,7 +447,7 @@
                                 @foreach(\App\User::where('id', '!=', Auth::user()->id)->get() as $user)
                                 <label class="btn btn-outline-secondary pad btn-block active">
                                     <img src="{{ asset('dashboard/Media/userAvatar.png') }}" class="img-size-32 rounded-circle">
-                                    <input type="checkbox" unchecked autocomplete="off" name="users[]" value="{{$user->id}}">{{$user->name}}
+                                    <input type="checkbox" unchecked autocomplete="off" name="user_ids[]" value="{{$user->id}}">{{$user->name}}
                                 </label> 
                                 @endforeach 
                             </div>
@@ -455,9 +456,10 @@
                 </table>
                 </div>
                 <div class="mt-2">
-                    <button type="cancel" onclick="toggle()" class="btn btn-sm btn-danger ml-2" style="border-radius:3px;">Cancel</button>
+                    <button type="reset" onclick="toggle()" class="btn btn-sm btn-danger ml-2" style="border-radius:3px;">Cancel</button>
                     <button type="submit" onclick="toggle()" class="btn btn-sm btn-info float-right" style="border-radius:3px;">Share</button>              
                 </div>
+
             </form>
             
         </div>
@@ -630,28 +632,6 @@
         
     });
      }, 500);
-
-
-    $(function()
-    {
-
-         var dueDate = value.getAttribute('data-dueDate');
-         dueDate = convertToUnixTimeStamp(dueDate);
-
-         var now = new Date();
-         now = convertToUnixTimeStamp(now);
-
-
-        var time = dueDate - now;
-        // var duration = moment.duration(time*1000, 'milliseconds');
-        // var interval = 1000;
-        console.log("Time :",time);
-
-        setInterval(function(){
-        duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
-        $('countdown').text(moment(duration.asMilliseconds()).format('H[h]:mm[m]:ss[s]'));
-        }, interval);
-    });
 
      
 //   eye toggle function

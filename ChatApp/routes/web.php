@@ -25,6 +25,8 @@ Route::patch('user/{user}/update', 'Admin\UsersController@updateStatus')->name('
 
 Route::resource('task', 'TaskController');
 
+Route::resource('sharetask', 'SharedTaskController');
+
 Route::middleware('can:manage-users')->group(function(){
     Route::resource('/admin/users', 'Admin\UsersController');
 });

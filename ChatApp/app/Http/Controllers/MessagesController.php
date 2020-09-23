@@ -55,7 +55,7 @@ class MessagesController extends Controller
         if(!$request->to_user || !$request->message) {
             return;
         }
-
+        
         $message = new Message();
 
         $message->from_user = Auth::user()->id;

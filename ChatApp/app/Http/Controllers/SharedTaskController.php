@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\SharedTask;
 use App\Task;
 use App\User;
+use     Auth;
 use Illuminate\Http\Request;
 
 class SharedTaskController extends Controller
@@ -34,9 +36,18 @@ class SharedTaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Task $task)
     {
-        
+        $sharedtask = new SharedTask();
+
+        $sharedtask['task_id'] = $task->id;
+
+        $sharedtask['shared_with_id'] = $request->all();
+
+        $sharedtask['shared_by_id'] = Auth::user()->id;
+        // $sharedtask->task_id = $this->id();
+        dd($sharedtask);
+        // $sharedtask->save();
     }
 
     /**
@@ -58,7 +69,7 @@ class SharedTaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
