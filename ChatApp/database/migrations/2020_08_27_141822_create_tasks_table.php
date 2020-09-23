@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->longText('task_body');
             $table->integer('created_by_id')->index();
             $table->dateTime('due_date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

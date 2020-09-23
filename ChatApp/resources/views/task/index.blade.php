@@ -140,8 +140,7 @@
                                     
                                         <div class="row mb-2">
                                                 <div class="col-md-3">
-                                                    <div class ="countdown"></div>
-                                                    <!-- <b>{{\Carbon\Carbon::createFromTimeStamp(strtotime($task->due_date))->diffForHumans()}}</b> -->
+                                                    <b>{{\Carbon\Carbon::createFromTimeStamp(strtotime($task->due_date))->diffForHumans()}}</b>
                                                     <!-- <p><time class="timeago" datetime="{{$task->due_date}}"></time></p> -->
                                                 </div>
                                             <div class="col-md-6">

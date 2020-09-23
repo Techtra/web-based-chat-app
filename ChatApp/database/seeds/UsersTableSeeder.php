@@ -17,10 +17,10 @@ class UsersTableSeeder extends Seeder
         User::truncate();
         DB::table('role_user')->truncate();
 
-        $create_userRole = Role::where('name', 'create-user')->first();
-        $edit_userRole = Role::where('name', 'edit-user')->first();
+        $create_userRole = Role::where('name', 'create-users')->first();
+        $edit_userRole = Role::where('name', 'edit-users')->first();
         $delete_userRole = Role::where('name', 'delete-user')->first();
-        $view_userRole = Role::where('name', 'view-user')->first();
+        $view_userRole = Role::where('name', 'view-users')->first();
         $create_chatroomRole = Role::where('name', 'create-chatroom')->first();
 
         $admin = User::create([
@@ -55,7 +55,7 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        $admin->roles()->attach($create_userRole);
+        $admin->roles()->attach($edit_userRole);
         $executive->roles()->attach($edit_userRole);
         $manager->roles()->attach($delete_userRole);
         $employee->roles()->attach($view_userRole);
