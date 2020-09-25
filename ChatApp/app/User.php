@@ -7,10 +7,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\Traits\CausesActivity;
 
 class User extends Authenticatable
 {
-    use Notifiable , LogsActivity, SoftDeletes;
+    use Notifiable , LogsActivity, CausesActivity, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -74,6 +75,17 @@ class User extends Authenticatable
     }
 
     // Activity Logs
+    protected static $logName = 'User Log';
 
-    protected static $logAttributes = ['name', 'email', 'type_id', 'phone', 'status_id'];
+
+    protected static $logAttributes = ['name', 'email', 'type.name', 'phone', 'status.status_body'];
+
+
+    protected static $logOnlyDirty = true;
+
+
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "User {$eventName}";
+    }
 }

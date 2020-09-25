@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Task extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, LogsActivity;
     
     protected $fillable = [
         'task_title', 'task_body', 'created_by_id', 'due_date', 
@@ -18,6 +19,20 @@ class Task extends Model
         return $this->belongsTo('App\User', 'created_by_id');
     }
 
+    //Activity Logs
+
+    protected static $logAttributes = ['task_title', 'task_body', 'due_date'];
+
+
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "Task {$eventName}";
+    }
+
+    protected static $logName = 'Task Log';
+
+
+    protected static $logOnlyDirty = true;
 //     public function getNumberOfDaysToDueDateAttribute(){
 //         $ret = ceil((strtotime($this->due_date) - strtotime('now'))/(60));
 //             if($ret >= 0){
